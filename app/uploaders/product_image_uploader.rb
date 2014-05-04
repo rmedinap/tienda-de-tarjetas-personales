@@ -37,11 +37,14 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fit => [100, 75]
   end
-  version :detail do
-    process :resize_and_pad => [650, 380, 'white']
-  end
   version :listing do
     process :resize_and_pad => [205, 120, 'white']
+  end
+  version :detail do
+    process :resize_and_pad => [540, 315, 'white']
+  end
+  version :background do
+    process :resize_and_pad => [620, 365, 'white']
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

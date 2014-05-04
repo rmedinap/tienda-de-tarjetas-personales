@@ -28,6 +28,6 @@
   %b Website:
   = @product_user.website
 
-= link_to 'Edit', edit_product_user_path(@product_user)
+= edit_tool @product_user
 \|
-= link_to 'Back', product_users_path
+= list_tool ProductUser

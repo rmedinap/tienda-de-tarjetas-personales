@@ -1,17 +1,21 @@
 = simple_form_for(@product_user) do |f|
-  -# = f.error_notification
   = render 'layouts/error_messages', :target => f.object
 
-  .form-inputs
-    = f.input :product_id
-    = f.input :company_name
-    = f.input :company_message
-    = f.input :user_name
-    = f.input :job_title
-    = f.input :address
-    = f.input :phone
-    = f.input :email
-    = f.input :website
+  .row
+    .col-md-4
+      .form-inputs.drop-labels
+        = f.input :product_id, :input_html => {:value => @product.id}, :as => :hidden
+        = f.input :company_name, :placeholder => "Nombre de Compañia"
+        = f.input :company_message, :placeholder => "Mensaje de Compañia"
+        = f.input :user_name, :placeholder => "Nombre Completo"
+        = f.input :job_title, :placeholder => "Puesto de trabajo"
+        = f.input :address, :placeholder => "Dirección/Otro"
+        = f.input :phone, :placeholder => "Teléfono/Otro"
+        = f.input :email, :placeholder => "Correo electrónico/Otro"
+        = f.input :website, :placeholder => "Página web/Otro"
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit
+    .col-md-8
+      .panel.panel-default.product-user-content
+        = image_tag @product.image.background

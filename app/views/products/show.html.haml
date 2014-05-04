@@ -16,7 +16,7 @@
       %b Descripción:
       %br
       = @product.description
-    = link_to "Personalizar", "#", :class=>"btn btn-primary"
+    = link_to "Personalizar", new_product_user_path(:product_id => @product.id), :class=>"btn btn-primary"
 
 = edit_tool @product
 \|
