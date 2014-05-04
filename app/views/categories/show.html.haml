@@ -4,6 +4,13 @@
   %b Name:
   = @category.name
 
+.row
+  - @products.in_groups_of(4, false) do |products|
+    .row
+      - products.each do |product|
+        .col-md-3
+          = render product
+
 = edit_tool @category
 \|
 = list_tool Category

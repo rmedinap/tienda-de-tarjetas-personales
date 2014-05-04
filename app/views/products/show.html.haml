@@ -1,22 +1,22 @@
-%p#notice= notice
+.row
+.ol.breadcrumb
+  %li= link_to @product.category, @product.category
+  %li.active= @product
 
 .row
+  .col-md-2
+  .col-md-7
+    = image_tag @product.image.detail
   .col-md-3
     %p
-      %b Name:
-      = @product.name
+      %h2= @product.name
     %p
-      %b Description:
+      %b A sólo #{number_to_currency @product.price}
+    %p
+      %b Descripción:
+      %br
       = @product.description
-    %p
-      %b Price:
-      = @product.price
-    %p
-      %b Category:
-      = @product.category_id
-  .col-md-9
-    = image_tag @product.image.detail
-
+    = link_to "Personalizar", "#", :class=>"btn btn-primary"
 
 = edit_tool @product
 \|

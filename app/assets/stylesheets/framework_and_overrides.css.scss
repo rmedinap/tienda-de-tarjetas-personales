@@ -92,9 +92,14 @@ section {
 @media (min-width: 1200px) {
   main{
     background-color: #FFF;
+    margin-top: 71px;
     .container {
       width: 980px;
       background-color: #FFF;
     }
   }
+}
+
+h2{
+  font-size: 18px;
 }
