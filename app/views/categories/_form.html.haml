@@ -1,8 +1,10 @@
 = simple_form_for(@category) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name
+  .row
+    .col-md-6
+      .form-inputs
+        = f.input :name
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit
