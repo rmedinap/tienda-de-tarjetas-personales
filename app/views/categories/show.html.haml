@@ -1,15 +1,16 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @category.name
+%h1= @category.name
+%hr
 
 .row
-  - @products.in_groups_of(4, false) do |products|
-    .row
-      - products.each do |product|
-        .col-md-3
-          = render product
+  .col-md-3
+  .col-md-9
+    - @products.in_groups_of(4, false) do |products|
+      .row
+        - products.each do |product|
+          .col-md-4
+            = render product
 
 = edit_tool @category
 \|
