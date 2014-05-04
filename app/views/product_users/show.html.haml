@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Product:
+  = @product_user.product_id
+%p
+  %b Company name:
+  = @product_user.company_name
+%p
+  %b Company message:
+  = @product_user.company_message
+%p
+  %b User name:
+  = @product_user.user_name
+%p
+  %b Job title:
+  = @product_user.job_title
+%p
+  %b Address:
+  = @product_user.address
+%p
+  %b Phone:
+  = @product_user.phone
+%p
+  %b Email:
+  = @product_user.email
+%p
+  %b Website:
+  = @product_user.website
+
+= link_to 'Edit', edit_product_user_path(@product_user)
+\|
+= link_to 'Back', product_users_path

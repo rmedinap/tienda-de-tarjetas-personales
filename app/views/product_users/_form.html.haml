@@ -1,0 +1,17 @@
+= simple_form_for(@product_user) do |f|
+  -# = f.error_notification
+  = render 'layouts/error_messages', :target => f.object
+
+  .form-inputs
+    = f.input :product_id
+    = f.input :company_name
+    = f.input :company_message
+    = f.input :user_name
+    = f.input :job_title
+    = f.input :address
+    = f.input :phone
+    = f.input :email
+    = f.input :website
+
+  .form-actions
+    = f.button :submit

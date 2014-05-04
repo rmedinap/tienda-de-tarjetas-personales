@@ -1,0 +1,35 @@
+%h1 Listing product_users
+
+%table
+  %tr
+    %th Product
+    %th Company name
+    %th Company message
+    %th User name
+    %th Job title
+    %th Address
+    %th Phone
+    %th Email
+    %th Website
+    %th
+    %th
+    %th
+
+  - @product_users.each do |product_user|
+    %tr
+      %td= product_user.product_id
+      %td= product_user.company_name
+      %td= product_user.company_message
+      %td= product_user.user_name
+      %td= product_user.job_title
+      %td= product_user.address
+      %td= product_user.phone
+      %td= product_user.email
+      %td= product_user.website
+      %td= link_to 'Show', product_user
+      %td= link_to 'Edit', edit_product_user_path(product_user)
+      %td= link_to 'Destroy', product_user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Product user', new_product_user_path
