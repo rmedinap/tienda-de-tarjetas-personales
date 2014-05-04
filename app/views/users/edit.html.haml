@@ -1,0 +1,16 @@
+.authform
+  %h2
+    Edit #{@user.name.humanize}
+  = simple_form_for(@user, :html => { :method => :put, :class => 'form-vertical', :role => 'form' }) do |f|
+    = f.error_notification
+    = display_base_errors @user
+    = f.input :name, :autofocus => true
+    %br
+    = f.input :email, :required => true
+    %br
+    %fieldset
+      = f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
+      = f.input :password_confirmation, :required => false
+    -# %fieldset
+      = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
+    = f.button :submit, 'Update', :class => 'btn-primary right'

@@ -39,6 +39,7 @@ group :development, :test do
   gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'thin'
+	gem 'highline'
 end
 group :production do
   gem 'unicorn'
