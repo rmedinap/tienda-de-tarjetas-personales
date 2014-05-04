@@ -1,12 +1,14 @@
 = simple_form_for(@product) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :name
-    = f.input :description
-    = f.input :image
-    = f.input :price
-    = f.input :category_id
+  .row
+    .col-md-6
+      .form-inputs
+        = f.input :name
+        = f.input :description
+        = f.input :image
+        = f.input :price
+        = f.input :category_id
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit
