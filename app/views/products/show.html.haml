@@ -1,20 +1,22 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @product.name
-%p
-  %b Description:
-  = @product.description
-%p
-  %b Image:
-  = @product.image
-%p
-  %b Price:
-  = @product.price
-%p
-  %b Category:
-  = @product.category_id
+.row
+  .col-md-3
+    %p
+      %b Name:
+      = @product.name
+    %p
+      %b Description:
+      = @product.description
+    %p
+      %b Price:
+      = @product.price
+    %p
+      %b Category:
+      = @product.category_id
+  .col-md-9
+    = image_tag @product.image.detail
+
 
 = edit_tool @product
 \|
