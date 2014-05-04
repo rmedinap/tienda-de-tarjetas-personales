@@ -1,0 +1,9 @@
+- if target.errors.any?
+  .alert.alert-danger
+    = link_to "x", "#", :class=>"close", :"data-dismiss"=>"alert"
+    %h4 Ocurrieron los siguientes errores
+    %ul
+      - target.errors.each do |error, message|
+        %li
+          = I18n.t error
+          = message

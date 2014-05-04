@@ -1,0 +1,46 @@
+es-PE:
+  simple_form:
+    "yes": 'Sí'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Se encontraron errores, por favor revisar:"
+
+    creating: "Creando..."
+    updating: 'Modificando...'
+    buttons:
+      or: 'o'
+      cancel: 'cancelar'
+      create: "Registrar %{model}"
+      update: "Registrar cambios"
+
+    # Labels and hints examples
+    labels:
+      defaults:
+        email: "Email"
+        password: 'Clave'
+        password_confirmation: 'Confirmar clave'
+        name: 'Nombre y Apellidos'
+        gender: 'Género'
+        birth_date: 'Fecha de Nacimiento'
+        phone: "Teléfono y/o celular"
+        city: "Ciudad, Distrito o Provincia"
+        postal_code: "Código postal"
+        line1: 'Dirección'
+        line2: 'Urbanización o Referencias'
+        country: "País"
+        region: "Región"
+        factura: "¿Emitir factura?"
+        shipping_address_id: "Dirección de entrega"
+        billing_address_id: "Boleta/Factura para:"
+        content: "Contenido"
+        description: "Breve descripción"
+    hints:
+      username: 'User name to sign in.'
+      password: 'No special characters, please.'
+

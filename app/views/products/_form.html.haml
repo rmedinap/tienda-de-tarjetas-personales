@@ -1,5 +1,5 @@
 = simple_form_for(@product) do |f|
-  = f.error_notification
+  = render 'layouts/error_messages', :target => f.object
 
   .row
     .col-md-6
