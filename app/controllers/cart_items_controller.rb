@@ -13,9 +13,9 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    # @cart.items.delete_if do |i|
-      # (i.product_id.to_s == params[:product_id]) && (i.variant_id.to_s == params[:variant_id])
-    # end
+    @cart.items.delete_if do |i|
+      (i.product_id.to_s == params[:product_id]) && (i.product_user_id.to_s == params[:product_user_id])
+    end
 
     redirect_to cart_items_url
   end
