@@ -28,6 +28,9 @@
   %b Website:
   = @product_user.website
 
+= button_to "Añadir al carrito", {:controller => "cart_items",
+  :action => "create", :id => @product_user.id, :product_id => @product.id, :quantity => 1}
+
 = edit_tool [@product, @product_user]
 \|
 = list_tool ProductUser

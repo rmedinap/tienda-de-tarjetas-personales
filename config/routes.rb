@@ -10,4 +10,8 @@ CardStore::Application.routes.draw do
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
   resources :users
+
+  resources :cart_items, only: [:index, :create, :destroy], path: 'comprar' do
+    # post :update_all, on: :collection
+  end
 end

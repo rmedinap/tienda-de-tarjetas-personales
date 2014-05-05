@@ -1,6 +1,7 @@
 # coding: utf-8
 class Product < ActiveRecord::Base
   belongs_to :category
+  has_many :product_users
 
   validates_presence_of :name, :description, :image, :price, :category_id
   validates_numericality_of :price

@@ -1,23 +1,23 @@
 class ProductUsersController < ApplicationController
-  before_action :set_product_user, only: [:show, :edit, :update, :destroy]
   before_action :set_product
+  before_action :set_product_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @product_users = ProductUser.all
+    @product_users = @product.product_users
   end
 
   def show
   end
 
   def new
-    @product_user = ProductUser.new
+    @product_user = @product.product_users.new
   end
 
   def edit
   end
 
   def create
-    @product_user = ProductUser.new(product_user_params)
+    @product_user = @product.product_users.new(product_user_params)
 
     respond_to do |format|
       if @product_user.save
@@ -52,7 +52,7 @@ class ProductUsersController < ApplicationController
 
   private
     def set_product_user
-      @product_user = ProductUser.find(params[:id])
+      @product_user = @product.product_users.find(params[:id])
     end
 
     def product_user_params
