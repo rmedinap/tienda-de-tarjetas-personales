@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
     product_user = product.product_users.find params[:id]
     quantity = params[:quantity]
     @cart.add_to_cart "#{product.id}-#{product_user.id}-#{quantity}"
-    redirect_to root_url
+    redirect_to cart_items_url
   end
 
   def destroy

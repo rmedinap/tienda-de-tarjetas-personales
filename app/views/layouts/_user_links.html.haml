@@ -1,10 +1,23 @@
 %li
   = link_to cart_items_path do
     = render 'shared/cart'
-
+%li
+  = link_to "|", "#", :class=>"btn disabled"
 - if user_signed_in?
-  %li= link_to 'Edit account', edit_user_registration_path
-  %li= link_to 'Logout', destroy_user_session_path, :method=>'delete'
+  %li
+    = link_to edit_user_registration_path do
+      %span.glyphicon.glyphicon-edit
+      Edit account
+  %li
+    = link_to destroy_user_session_path, :method=>'delete' do
+      %span.glyphicon.glyphicon-off
+      Logout
 - else
-  %li= link_to 'Login', new_user_session_path
-  %li= link_to 'Sign up', new_user_registration_path
+  %li
+    = link_to new_user_session_path do
+      %span.glyphicon.glyphicon-log-in
+      Ingresar
+  %li
+    = link_to new_user_registration_path do
+      %span.glyphicon.glyphicon-save
+      Registrarse

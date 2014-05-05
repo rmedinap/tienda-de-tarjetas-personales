@@ -5,6 +5,9 @@ es-PE:
   price: Precio
   image: Imagen
   category_id: Categoría
+  # ProductUser
+  user_name: Nombre
+  job_title: Puesto de trabajo
 
   date:
     abbr_day_names:
