@@ -12,6 +12,6 @@ CardStore::Application.routes.draw do
   resources :users
 
   resources :cart_items, only: [:index, :create, :destroy], path: 'comprar' do
-    # post :update_all, on: :collection
+    post :update_all, on: :collection
   end
 end

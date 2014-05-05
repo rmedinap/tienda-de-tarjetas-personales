@@ -1,48 +1,50 @@
 %h1 MI CARRITO DE COMPRAS
 
-%table.table.table-striped.cart-items-table
-  %tr
-    %th Producto
-    %th Precio
-    %th Cantidad
-    %th Total
-    %td
-  - @cart.items.each do |item|
-    - product       = item.product
-    - product_user  = item.product_user
+-# = form_tag update_all_cart_items_path do
+= simple_form_for :product, {:url=>update_all_cart_items_path} do |f|
+  %table.table.table-striped.cart-items-table
+    %tr
+      %th Producto
+      %th Cantidad
+      %th Precio
+      %th Total
+      %td
+    - @cart.items.each do |item|
+      - product       = item.product
+      - product_user  = item.product_user
+      %tr
+        %td
+          .row
+            .col-md-3
+              = link_to [product, product_user] do
+                = image_tag product.image.thumb
+            .col-md-9
+              = link_to [product, product_user] do
+                %h2= product
+              %p= truncate "#{product_user.company_name} - #{product_user.user_name} - #{product_user.job_title}",
+                length: 50, separator: ' '
+        %td
+          .text.form-inputs= number_field_tag "product[#{item.product_user_id}][qty]", item.quantity
+        %td
+          .text= number_to_currency product.price
+        %td
+          .text= number_to_currency item.total_price
+        %td
+          = link_to cart_item_path(item,
+            :product_id=>item.product_id,
+            :product_user_id=>item.product_user_id),
+            :data => { :confirm => "¿Desea eliminar el producto de su carrito?" },
+            :method => :delete, :class=>"btn btn-danger btn-xs text" do
+            %span.glyphicon.glyphicon-trash
     %tr
       %td
-        .row
-          .col-md-3
-            = link_to [product, product_user] do
-              = image_tag product.image.thumb
-          .col-md-9
-            = link_to [product, product_user] do
-              %h2= product
-            %p= truncate "#{product_user.company_name} - #{product_user.user_name} - #{product_user.job_title}",
-              length: 50, separator: ' '
+      %td= submit_tag "Actualizar", :class=>"btn btn-default"
+      %th Subtotal
+      %td.text
+        %b= number_to_currency @cart.total_price
       %td
-        .text= number_to_currency product.price
+    %tr
+      %td= link_to "Seguir comprando", root_path, :class=>"btn btn-default"
       %td
-        .text= item.quantity
       %td
-        .text= number_to_currency item.total_price
-      %td
-        = link_to cart_item_path(item,
-          :product_id=>item.product_id,
-          :product_user_id=>item.product_user_id),
-          :data => { :confirm => "¿Desea eliminar el producto de su carrito?" },
-          :method => :delete, :class=>"btn btn-danger btn-xs text" do
-          %span.glyphicon.glyphicon-trash
-  %tr
-    %td
-    %td
-    %th Subtotal
-    %td.text
-      %b= number_to_currency @cart.total_price
-    %td
-  %tr
-    %td= link_to "Seguir comprando", root_path, :class=>"btn btn-default"
-    %td
-    %td
-    %td{:colspan=>2}= link_to "Pagar", "#", :class=>"btn btn-primary btn-block"
+      %td{:colspan=>2}= link_to "Pagar", "#", :class=>"btn btn-primary btn-block"

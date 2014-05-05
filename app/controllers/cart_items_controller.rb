@@ -21,10 +21,9 @@ class CartItemsController < ApplicationController
   end
 
   def update_all
-    params[:variant].each do |variant_id, fields|
-      item = @cart.items.find { |i| i.variant_id.to_s == variant_id }
+    params[:product].each do |product_user_id, fields|
+      item = @cart.items.find { |i| i.product_user_id.to_s == product_user_id }
       item.quantity = fields['qty'].to_i
-      item.variant_id = fields['variant_id'].to_i if fields['variant_id'].present?
     end
 
     redirect_to cart_items_url
