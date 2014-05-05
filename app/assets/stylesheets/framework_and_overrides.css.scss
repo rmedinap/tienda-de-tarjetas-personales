@@ -40,7 +40,8 @@ img {
 // to make views framework-neutral
 main {
   @extend .container;
-  background-color: #eee;
+  background-color: #FFF;
+  /* background-color: #eee; */
   padding-bottom: 80px;
   width: 100%;
   margin-top: 51px; // accommodate the navbar
@@ -91,7 +92,6 @@ section {
 
 @media (min-width: 1200px) {
   main{
-    background-color: #FFF;
     margin-top: 71px;
     .container {
       width: 980px;

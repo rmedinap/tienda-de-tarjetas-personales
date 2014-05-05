@@ -33,18 +33,18 @@ class ProductImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  process :resize_to_fit => [500, nil]
+  process :resize_to_fit => [620, nil]
   version :thumb do
-    process :resize_to_fit => [100, 75]
+    process :resize_to_fit => [100, 60]
   end
   version :listing do
     process :resize_and_pad => [205, 120, 'white']
   end
   version :detail do
-    process :resize_and_pad => [540, 315, 'white']
+    process :resize_and_pad => [540, 316, 'white']
   end
   version :background do
-    process :resize_and_pad => [620, 365, 'white']
+    process :resize_and_pad => [620, 363, 'white']
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

@@ -1,23 +1,23 @@
 %h1 Listing products
 
-%table.table.table-striped
+%table.table.table-striped#product_table
   %tr
-    %th Name
-    %th Description
+    %th.name Name
+    %th.description Description
     %th Image
     %th Price
-    %th Category
+    %th.category Category
     %th
 
   - @products.each do |product|
     %tr
       %td= product.name
-      %td= product.description
-      %td= image_tag product.image.thumb
-      %td= product.price
+      %td= truncate product.description, :length => 120, :separator => ' '
+      %td.image= image_tag product.image.thumb
+      %td= number_to_currency product.price
       %td= product.category
       %td
-        = user_tools product
+        = user_tools product, {}, {:text=>false}
         = link_to "Personalizados", product_product_users_url(product), :class => "btn btn-info btn-sm"
 
 %br

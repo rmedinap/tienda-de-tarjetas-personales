@@ -3,13 +3,12 @@
   %li= link_to @product.category, @product.category
   %li.active= @product
 
-.row
+.row#product_detail
   .col-md-2
   .col-md-7
     = image_tag @product.image.detail
   .col-md-3
-    %p
-      %h2= @product.name
+    %h2= @product.name
     %p
       %b A sólo #{number_to_currency @product.price}
     %p

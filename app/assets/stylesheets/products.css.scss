@@ -3,6 +3,21 @@
   hr{ margin: 10px 0 }
 }
 
+#product_table{
+  .name{ width: 18% }
+  .description{ width: 35% }
+  .image{
+    width: 100px;
+    padding: 8px 0;
+  }
+  .category{ width: 15% }
+  .btn-info{ margin-top: 3px }
+}
+
+#product_detail{
+  h2{ margin-top: 0 }
+}
+
 /* ShoppingCart */
 .cart-items-table{
   h2{ margin: 0 }
