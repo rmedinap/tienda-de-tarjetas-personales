@@ -1,4 +1,4 @@
-= simple_form_for(@product_user) do |f|
+= simple_form_for([@product, @product_user]) do |f|
   = render 'layouts/error_messages', :target => f.object
 
   .row

@@ -24,8 +24,8 @@
       %td= product_user.phone
       %td= product_user.email
       %td= product_user.website
-      %td= user_tools product_user.website
+      %td= user_tools [@product, product_user]
 
 %br
 
-= new_tool ProductUser
+= new_tool [@product, ProductUser]

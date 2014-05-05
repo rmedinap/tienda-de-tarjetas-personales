@@ -1,9 +1,11 @@
 CardStore::Application.routes.draw do
-  resources :product_users
 
   resources :categories
+  # resources :product_users
 
-  resources :products
+  resources :products do
+    resources :product_users
+  end
 
   root :to => "home#index"
   devise_for :users, :controllers => {:registrations => "registrations"}
