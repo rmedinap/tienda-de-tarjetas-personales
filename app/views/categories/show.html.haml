@@ -5,6 +5,8 @@
 
 .row
   .col-md-3
+    %h2 Categorías
+    = render 'shared/categories_nav', :categories => @categories
   .col-md-9
     - @products.in_groups_of(4, false) do |products|
       .row
@@ -13,5 +15,4 @@
             = render product
 
 = edit_tool @category
-\|
 = list_tool Category

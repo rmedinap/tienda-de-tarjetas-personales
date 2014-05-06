@@ -3,9 +3,7 @@
 .row
   .col-md-3
     %h2 Categorías
-    %ul.nav.nav-pills.nav-stacked
-      - @categories.each do |category|
-        %li= link_to category, category
+    = render 'shared/categories_nav', :categories => @categories
 
   .col-md-9
     - @products.in_groups_of(3, false) do |products|
