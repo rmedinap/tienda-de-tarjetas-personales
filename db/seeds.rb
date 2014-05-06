@@ -28,15 +28,17 @@ product_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                       Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
 product_image = "product_test_123.jpeg"
 product_prices = [10, 5]
+index = 0
 
 categories.each_with_index do |category_name, i|
   category = Category.find_or_create_by(name: category_name)
   puts "  --> #{category.to_s}"
   product_names[i].each do |name|
+    index += 1
     product = category.products.find_or_initialize_by(name: "#{name} producto")
     product.description = product_description
     product.image = File.open(File.join(Rails.root, "/app/assets/images/products/#{product_image}"))
-    product.price = (product_prices[i%2] * i).to_i
+    product.price = (product_prices[(index % 2)] * (index + 1)).to_i
     product.save!
     puts "    -- #{product.name}"
   end
