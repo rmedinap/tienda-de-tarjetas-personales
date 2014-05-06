@@ -1,4 +1,4 @@
-= simple_form_for([@product, @product_user]) do |f|
+= simple_form_for([@product, @product_user], :html=>{:id=>"product_user_form"}) do |f|
   = render 'layouts/error_messages', :target => f.object
 
   .row
@@ -18,4 +18,14 @@
         = f.button :submit
     .col-md-8
       .panel.panel-default.product-user-content
-        = image_tag @product.image.background
+        #product_user_content
+          #company_name.element
+          #company_message.element
+          #user_name.element
+          #job_title.element
+          #phone.element
+          #address.element
+          #email.element
+          #website.element
+          #product_user_background= image_tag @product.image.background
+

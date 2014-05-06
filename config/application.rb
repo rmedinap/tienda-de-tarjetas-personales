@@ -36,5 +36,7 @@ module CardStore
     # config.i18n.default_locale = :de
     config.time_zone = 'Lima'
     config.i18n.default_locale = 'es-PE'
+
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end

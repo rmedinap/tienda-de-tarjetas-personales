@@ -1,3 +1,55 @@
 .product-user-content{
   margin-top: 10px;
+  #product_user_content{
+    height: 363px;
+    position: relative;
+    overflow: hidden;
+    div.element{
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      &:hover{
+        border: dotted 2px #00CCFF;
+        .ui-icon-gripsmall-diagonal-se {
+          border: 1px solid #FFF;
+        }
+      }
+    }
+    #product_user_background{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      border: none;
+    }
+    .large{
+      height: 36px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .medium{
+      height: 32px;
+      font-size: 18px;
+      font-weight: 400;
+    }
+    .small{
+      height: 28px;
+      font-size: 14px;
+    }
+    #company_name, #user_name{
+      @extend .large;
+      left: 165px;
+      top: 60px;
+    }
+    #company_message, #job_title, #phone{
+      @extend .medium;
+      left: 165px;
+      top: 50px;
+    }
+    #address, #email, #website{
+      @extend .small;
+      left: 431px;
+      top: 75px;
+    }
+  }
 }
