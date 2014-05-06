@@ -1,3 +1,4 @@
+# coding: utf-8
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -15,3 +16,28 @@ puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.add_role :admin
+
+puts "########################"
+puts "###   LOADING DATA   ###"
+puts "########################"
+categories = ['Educación', 'Entretenimiento', 'Negocios']
+
+product_names = [['Primer', 'Segundo', 'Tercer'], ['Cuarto', 'Quinto', 'Sexto'], ['Séptimo', 'Octavo', 'Noveno']]
+product_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+                      Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
+product_image = "product_test_123.jpeg"
+product_prices = [10, 5]
+
+categories.each_with_index do |category_name, i|
+  category = Category.find_or_create_by(name: category_name)
+  puts "  --> #{category.to_s}"
+  product_names[i].each do |name|
+    product = category.products.find_or_initialize_by(name: "#{name} producto")
+    product.description = product_description
+    product.image = File.open(File.join(Rails.root, "/app/assets/images/products/#{product_image}"))
+    product.price = (product_prices[i%2] * i).to_i
+    product.save!
+    puts "    -- #{product.name}"
+  end
+end
