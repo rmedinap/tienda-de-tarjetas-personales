@@ -2,9 +2,11 @@
   -# = f.error_notification
   = render 'layouts/error_messages', :target => f.object
 
-  .form-inputs
-    = f.input :name
-    = f.input :active
+  .row
+    .col-md-6
+      .form-inputs
+        = f.input :name
+        = f.input :active
 
-  .form-actions
-    = f.button :submit
+      .form-actions
+        = f.button :submit

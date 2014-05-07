@@ -1,11 +1,11 @@
 %p#notice= notice
+%h1= @product_model
+%hr
 
-%p
-  %b Name:
-  = @product_model.name
+.row
 %p
   %b Active:
-  = @product_model.active
+  = tick @product_model.active
 
 = link_to 'Edit', edit_product_model_path(@product_model)
 \|
