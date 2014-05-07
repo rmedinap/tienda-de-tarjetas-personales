@@ -21,6 +21,7 @@ puts "########################"
 puts "###   LOADING DATA   ###"
 puts "########################"
 categories = ['Educación', 'Entretenimiento', 'Negocios']
+product_models = ['Bordes redondeados', 'Bordes en punta', 'Brillante']
 
 product_names = [['Primer', 'Segundo', 'Tercer'], ['Cuarto', 'Quinto', 'Sexto'], ['Séptimo', 'Octavo', 'Noveno']]
 product_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
@@ -33,13 +34,16 @@ index = 0
 categories.each_with_index do |category_name, i|
   category = Category.find_or_create_by(name: category_name)
   puts "  --> #{category.to_s}"
+  product_model = ProductModel.find_or_create_by(name: product_models[i], active: true)
   product_names[i].each do |name|
     index += 1
     product = category.products.find_or_initialize_by(name: "#{name} producto")
     product.description = product_description
     product.image = File.open(File.join(Rails.root, "/app/assets/images/products/#{product_image}"))
     product.price = (product_prices[(index % 2)] * (index + 1)).to_i
+    product.product_model_id = product_model.id
     product.save!
     puts "    -- #{product.name}"
+    puts "      - #{product.product_model.to_s}"
   end
 end

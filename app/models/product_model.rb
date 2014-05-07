@@ -4,7 +4,7 @@ class ProductModel < ActiveRecord::Base
 
   validates_presence_of :name
 
-  scope :actives, where(:active => true)
+  scope :actives, -> { where(:active => true) }
 
   def to_s
     name
