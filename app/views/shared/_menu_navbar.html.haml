@@ -21,3 +21,9 @@
         %ul.dropdown-menu
           - @product_models.each do |product_model|
             %li= link_to product_model, product_model
+
+    = form_tag(root_path, method: :get, :id => 'search', :class=>"navbar-form navbar-right") do
+      .form-group
+        %input.form-control.input-sm{value: "#{params[:search]}", name: 'search', placeholder: "Busca aquí", type: "text"}
+        = button_tag :type => :submit, :class => "btn btn-sm" do
+          %span.glyphicon.glyphicon-search

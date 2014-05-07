@@ -13,4 +13,12 @@ class Product < ActiveRecord::Base
   def to_s
     name
   end
+
+  def self.search(search)
+    if search
+      where("name LIKE ? or description LIKE ?", "%#{search}%", "%#{search}%")
+    else
+      scoped
+    end
+  end
 end
