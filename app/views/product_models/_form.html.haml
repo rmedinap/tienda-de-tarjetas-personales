@@ -1,0 +1,10 @@
+= simple_form_for(@product_model) do |f|
+  -# = f.error_notification
+  = render 'layouts/error_messages', :target => f.object
+
+  .form-inputs
+    = f.input :name
+    = f.input :active
+
+  .form-actions
+    = f.button :submit

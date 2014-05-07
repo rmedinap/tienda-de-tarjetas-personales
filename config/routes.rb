@@ -1,5 +1,7 @@
 CardStore::Application.routes.draw do
 
+  resources :product_models
+
   resources :categories
   # resources :product_users
 

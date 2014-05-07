@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//  require turbolinks
 //= require bootstrap
 //= require jquery.hotkeys
 //= require popline/jquery.popline

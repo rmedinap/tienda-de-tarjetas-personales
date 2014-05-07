@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @product_model.name
+%p
+  %b Active:
+  = @product_model.active
+
+= link_to 'Edit', edit_product_model_path(@product_model)
+\|
+= link_to 'Back', product_models_path

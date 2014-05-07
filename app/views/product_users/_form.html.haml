@@ -4,6 +4,7 @@
   .row
     .col-md-4
       .form-inputs.drop-labels
+        #current_page
         = f.input :product_id, :input_html => {:value => @product.id}, :as => :hidden
         = f.input :company_name, :placeholder => "Nombre de Compañia"
         = f.input :company_message, :placeholder => "Mensaje de Compañia"

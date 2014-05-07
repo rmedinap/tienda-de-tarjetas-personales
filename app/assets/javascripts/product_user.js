@@ -37,8 +37,11 @@ $(function() {
   // Wysiwyg
   // $('#editor').wysiwyg();
   //
-  window.onbeforeunload = function(e) {
-    return 'Perderás todas las modificaciones hechas hasta ahora.';
-  };
+  if ($("#current_page").length > 0 ){
+    window.onbeforeunload = function(e) {
+      return 'Perderás todas las modificaciones hechas hasta ahora.';
+    };
+  }
+  // console.log($("#current_page").length > 0);
 
 });

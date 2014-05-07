@@ -1,0 +1,21 @@
+%h1 Listing product_models
+
+%table
+  %tr
+    %th Name
+    %th Active
+    %th
+    %th
+    %th
+
+  - @product_models.each do |product_model|
+    %tr
+      %td= product_model.name
+      %td= product_model.active
+      %td= link_to 'Show', product_model
+      %td= link_to 'Edit', edit_product_model_path(product_model)
+      %td= link_to 'Destroy', product_model, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Product model', new_product_model_path
