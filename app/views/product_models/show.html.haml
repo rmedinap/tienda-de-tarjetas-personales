@@ -3,10 +3,20 @@
 %hr
 
 .row
+  .col-md-3
+    = render 'shared/categories_nav', :categories => @categories,
+      :title => "Categorías"
+    = render 'shared/categories_nav', :categories => @product_models,
+      :title => "Modelos", :active => @product_model
+  .col-md-9
+    - @products.in_groups_of(4, false) do |products|
+      .row
+        - products.each do |product|
+          .col-md-4
+            = render product
+
+= edit_tool @product_model
+= list_tool ProductModel
 %p
   %b Active:
   = tick @product_model.active
-
-= link_to 'Edit', edit_product_model_path(@product_model)
-\|
-= link_to 'Back', product_models_path

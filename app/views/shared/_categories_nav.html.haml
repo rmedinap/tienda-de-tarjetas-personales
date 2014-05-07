@@ -1,3 +1,5 @@
+%h4= title || nil
+- active ||= nil
 %ul.nav.nav-pills.nav-stacked
   - categories.each do |category|
-    %li= link_to category, category
+    %li{:class=>"#{"active" if category == active}"}= link_to category, category

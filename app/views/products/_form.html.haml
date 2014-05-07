@@ -9,6 +9,7 @@
         = f.input :image, :as => :file
         = f.input :price
         = f.input :category_id, :collection => @categories
+        = f.input :product_model_id, :collection => @product_models
 
       .form-actions
         = f.button :submit

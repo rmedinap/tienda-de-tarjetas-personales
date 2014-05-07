@@ -19,5 +19,5 @@
 //= require popline/jquery.popline.blockformat
 //= require popline/jquery.popline.backcolor
 //= require popline/jquery.popline.decoration
-// require jquery-ui
+//= require jquery-ui
 //= require_tree .

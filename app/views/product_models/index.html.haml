@@ -9,7 +9,7 @@
   - @product_models.each do |product_model|
     %tr
       %td= product_model.name
-      %td= product_model.active
+      %td= tick product_model.active
       %td= user_tools product_model
 
 %br

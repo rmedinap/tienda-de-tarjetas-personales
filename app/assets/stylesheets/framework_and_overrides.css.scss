@@ -103,3 +103,7 @@ section {
 h2{
   font-size: 18px;
 }
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  color: white;
+  background-color: #BDDCF7;
+}

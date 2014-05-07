@@ -11,14 +11,18 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @categories = Category.all
+    @product_models = ProductModel.actives.to_a
   end
 
   def edit
     @categories = Category.all
+    @product_models = ProductModel.actives.to_a
   end
 
   def create
     @product = Product.new(product_params)
+    @categories = Category.all
+    @product_models = ProductModel.actives.to_a
 
     respond_to do |format|
       if @product.save
@@ -32,6 +36,8 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @categories = Category.all
+    @product_models = ProductModel.actives.to_a
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -57,6 +63,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(:name, :description, :image, :price, :category_id)
+      params.require(:product).permit(:name, :description, :image, :price, :category_id, :product_model_id)
     end
 end

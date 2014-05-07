@@ -5,6 +5,7 @@ es-PE:
   price: Precio
   image: Imagen
   category_id: Categoría
+  product_model_id: Modelo
   # ProductUser
   user_name: Nombre
   job_title: Puesto de trabajo
