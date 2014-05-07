@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product.all
@@ -10,19 +11,16 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @categories = Category.all
-    @product_models = ProductModel.actives.to_a
+    @product_models = @product_models.to_a
   end
 
   def edit
-    @categories = Category.all
-    @product_models = ProductModel.actives.to_a
+    @product_models = @product_models.to_a
   end
 
   def create
     @product = Product.new(product_params)
-    @categories = Category.all
-    @product_models = ProductModel.actives.to_a
+    @product_models = @product_models.to_a
 
     respond_to do |format|
       if @product.save
@@ -36,8 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @categories = Category.all
-    @product_models = ProductModel.actives.to_a
+    @product_models = @product_models.to_a
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }

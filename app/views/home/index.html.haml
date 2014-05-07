@@ -2,8 +2,8 @@
 %hr
 .row
   .col-md-3
-    %h2 Categorías
-    = render 'shared/categories_nav', :categories => @categories
+    = render 'shared/categories_nav', :categories => @categories, :title=>"Categorías"
+    = render 'shared/categories_nav', :categories => @product_models, :title=>"Modelos"
 
   .col-md-9
     - @products.in_groups_of(3, false) do |products|

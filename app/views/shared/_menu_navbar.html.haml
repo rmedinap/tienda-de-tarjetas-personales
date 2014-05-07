@@ -1,0 +1,23 @@
+%nav.navbar.navbar-default.container
+  .navbar-header
+    %button.navbar-toggle{type: "button", :data=>{target:"#menu_navbar", toggle: "collapse"}}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+  .collapse.navbar-collapse#menu_navbar
+    %ul.nav.navbar-nav
+      %li.dropdown
+        = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
+          Categorías
+          %span.caret
+        %ul.dropdown-menu
+          - @categories.each do |category|
+            %li= link_to category, category
+      %li.dropdown
+        = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
+          Modelos
+          %span.caret
+        %ul.dropdown-menu
+          - @product_models.each do |product_model|
+            %li= link_to product_model, product_model

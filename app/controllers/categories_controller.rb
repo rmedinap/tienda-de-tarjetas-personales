@@ -7,8 +7,6 @@ class CategoriesController < ApplicationController
 
   def show
     @products = @category.products
-    @categories = Category.all
-    @product_models = ProductModel.actives
   end
 
   def new

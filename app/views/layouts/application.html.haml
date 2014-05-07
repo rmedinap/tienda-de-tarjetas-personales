@@ -6,12 +6,12 @@
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Card Store'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
-    -# = javascript_include_tag "//code.jquery.com/ui/1.10.4/jquery-ui.js"
     = csrf_meta_tags
   %body
     %header
       = render 'layouts/navigation'
     %main{:role => "main"}
+      = render 'shared/menu_navbar'
       .container
         = render 'layouts/messages'
         = yield
