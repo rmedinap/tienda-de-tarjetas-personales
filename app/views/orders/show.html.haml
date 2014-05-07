@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @order.user_id
+%p
+  %b Name:
+  = @order.name
+%p
+  %b Email:
+  = @order.email
+%p
+  %b Address:
+  = @order.address
+%p
+  %b Document number:
+  = @order.document_number
+%p
+  %b Payment type:
+  = @order.payment_type
+%p
+  %b Special:
+  = @order.special_id
+%p
+  %b Subtotal:
+  = @order.subtotal
+%p
+  %b Discount:
+  = @order.discount
+
+= link_to 'Edit', edit_order_path(@order)
+\|
+= link_to 'Back', orders_path
