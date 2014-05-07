@@ -11,5 +11,7 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require popline/default
+ *= require popline/default_overrides
  *= require_self
  */

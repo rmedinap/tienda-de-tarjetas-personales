@@ -14,4 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require jquery.hotkeys
+//= require popline/jquery.popline
+//= require popline/jquery.popline.blockformat
+//= require popline/jquery.popline.backcolor
+//= require popline/jquery.popline.decoration
+// require jquery-ui
 //= require_tree .
