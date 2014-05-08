@@ -28,6 +28,6 @@
   %b Discount:
   = @order.discount
 
-= link_to 'Edit', edit_order_path(@order)
-\|
-= link_to 'Back', orders_path
+%br
+= edit_tool @order
+= list_tool Order

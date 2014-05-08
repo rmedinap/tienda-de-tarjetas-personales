@@ -1,6 +1,6 @@
 %h1 Listing orders
 
-%table
+%table.table.table-striped
   %tr
     %th User
     %th Name
@@ -11,8 +11,6 @@
     %th Special
     %th Subtotal
     %th Discount
-    %th
-    %th
     %th
 
   - @orders.each do |order|
@@ -26,10 +24,9 @@
       %td= order.special_id
       %td= order.subtotal
       %td= order.discount
-      %td= link_to 'Show', order
-      %td= link_to 'Edit', edit_order_path(order)
-      %td= link_to 'Destroy', order, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+      %td= show_tool order
+      %td= delete_tool order
+      -# %td= usel_tools(order)
 %br
 
-= link_to 'New Order', new_order_path
+= new_tool Order

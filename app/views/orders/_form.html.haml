@@ -1,17 +1,53 @@
 = simple_form_for(@order) do |f|
-  -# = f.error_notification
   = render 'layouts/error_messages', :target => f.object
 
-  .form-inputs
-    = f.input :user_id
-    = f.input :name
-    = f.input :email
-    = f.input :address
-    = f.input :document_number
-    = f.input :payment_type
-    = f.input :special_id
-    = f.input :subtotal
-    = f.input :discount
+  .row
+    .col-md-12
+      .col-md-4
+        %h3 Facturación
+        %hr
+        .form-inputs
+          = f.input :user_id, :as=>:hidden, :input_html=>{:value=> current_user.id}
+          = f.input :name, :as=>:hidden, :input_html=>{:value=> current_user.name}
+          = f.input :email, :as=>:hidden, :input_html=>{:value=> current_user.email}
+          = f.input :document_number
+          = f.input :address
+          -# = f.input :special_id
+          -# = f.input :subtotal
+          -# = f.input :discount
 
-  .form-actions
-    = f.button :submit
+      .col-md-4
+        %h3 Método de pago
+        %hr
+        .form-inputs
+          = f.input :payment_type, :as=> :radio_buttons, :collection => Order::PAYMENT_TYPES
+      .col-md-4
+        %h3 Resúmen de la orden
+        %hr
+        %table.table.table-striped
+          %tr
+            %th Producto
+            %th Cantidad
+            %th Subtotal
+          - @cart.items.each do |item|
+            %tr
+              %td= item.product.name
+              %td= item.quantity
+              %td= number_to_currency item.product.price
+          %tr
+            %th{:colspan=>"2"} Subtotal
+            %td= @cart.total_price
+          %tr
+            %th{:colspan=>"2"} Total
+            %td= @cart.total_price
+
+        %p#order_terms_and_conditions
+          = content_tag :label, class: 'check_box' do
+            = f.check_box :terms_of_service
+            Acepto los
+            = link_to '/pages/1', class: 'fancybox fancybox.ajax'  do
+              Términos y Condiciones
+              %i.icon-external-link
+
+        .form-actions
+          = f.button :submit, "Pagar Ahora", :class=>"btn btn-block btn-success"

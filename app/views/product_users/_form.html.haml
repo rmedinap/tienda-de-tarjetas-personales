@@ -39,7 +39,8 @@
 
           #product_user_background= image_tag @product.image.background, :id=>"background_card"
 
-%canvas{:id=>"canvas", :width=>"620", :height=>"363"}
-  No soportado
-%img{:id=>"img_canvas", :width=>"620", :height=>"363"}
-= link_to "OPEN", "#", :id=>"op"
+%div.hidden
+  %canvas{:id=>"canvas", :width=>"620", :height=>"363"}
+    No soportado
+  %img{:id=>"img_canvas", :width=>"620", :height=>"363"}
+  = link_to "OPEN", "#", :id=>"op"
