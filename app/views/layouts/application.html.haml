@@ -15,3 +15,12 @@
       .container
         = render 'layouts/messages'
         = yield
+    %footer
+      .container
+        .well
+          %ul.list-inline
+            = render 'layouts/navigation_links'
+            %li.pull-right.text-center
+              &copy 2014 Infoservicios
+              %br
+              Todos los derechos reservados

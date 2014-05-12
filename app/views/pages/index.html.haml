@@ -2,12 +2,14 @@
 
 %table.table.table-striped
   %tr
-    %th Title
+    %th Título
+    %th ¿Activo?
     %th
 
   - @pages.each do |page|
     %tr
       %td= page.title
+      %td= tick page.active
       %td= user_tools page
 
 %br
