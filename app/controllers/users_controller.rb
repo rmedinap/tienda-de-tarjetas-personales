@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_filter :authenticate_user!
 
   def index
-    authorize! :index, @user, :message => 'Not authorized as an administrator.'
+    # authorize! :index, @user, :message => 'No está autorizado para acceder a esa página.'
     @users = User.all
   end
 
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    authorize! :update, @user, :message => 'Not authorized as an administrator.'
+    # authorize! :update, @user, :message => 'No está autorizado para acceder a esa página.'
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       redirect_to users_path, :notice => "User updated."
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
+    # authorize! :destroy, @user, :message => 'No está autorizado para acceder a esa página.'
     user = User.find(params[:id])
     unless user == current_user
       user.destroy
