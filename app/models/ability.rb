@@ -16,6 +16,8 @@ class Ability
       cannot :index,  Order
       can :show,      User
       cannot :index,  User
+      can :show,      Page
+      cannot :index,  Page
     end
     # Define abilities for the passed in user here. For example:
     #

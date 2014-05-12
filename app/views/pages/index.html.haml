@@ -1,21 +1,17 @@
 %h1 Listing pages
 
-%table
+%table.table.table-striped
   %tr
     %th Title
     %th Content
-    %th
-    %th
     %th
 
   - @pages.each do |page|
     %tr
       %td= page.title
       %td= page.content
-      %td= link_to 'Show', page
-      %td= link_to 'Edit', edit_page_path(page)
-      %td= link_to 'Destroy', page, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= user_tools page
 
 %br
 
-= link_to 'New Page', new_page_path
+= new_tool Page
