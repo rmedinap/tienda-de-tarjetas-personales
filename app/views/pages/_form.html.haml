@@ -1,0 +1,10 @@
+= simple_form_for(@page) do |f|
+  -# = f.error_notification
+  = render 'layouts/error_messages', :target => f.object
+
+  .form-inputs
+    = f.input :title
+    = f.input :content
+
+  .form-actions
+    = f.button :submit

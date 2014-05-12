@@ -10,6 +10,11 @@ es-PE:
   user_name: Nombre
   job_title: Puesto de trabajo
 
+  # Permissions
+  unauthorized:
+    manage:
+      all: "No está autorizado para acceder a esa página."
+
   date:
     abbr_day_names:
     - dom
