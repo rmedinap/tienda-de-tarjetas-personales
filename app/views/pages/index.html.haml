@@ -3,13 +3,11 @@
 %table.table.table-striped
   %tr
     %th Title
-    %th Content
     %th
 
   - @pages.each do |page|
     %tr
       %td= page.title
-      %td= page.content
       %td= user_tools page
 
 %br

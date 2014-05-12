@@ -20,4 +20,6 @@
 //= require popline/jquery.popline.backcolor
 //= require popline/jquery.popline.decoration
 //= require jquery-ui
+//= require ckeditor/override
+//= require ckeditor/init
 //= require_tree .

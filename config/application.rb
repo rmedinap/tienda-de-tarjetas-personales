@@ -38,5 +38,7 @@ module CardStore
     config.i18n.default_locale = 'es-PE'
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
