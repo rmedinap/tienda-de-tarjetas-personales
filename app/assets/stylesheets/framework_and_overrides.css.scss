@@ -107,3 +107,18 @@ h2{
   color: white;
   background-color: #BDDCF7;
 }
+#navbar_top_navigation{
+  background-color: #2FADE7;
+  .navbar-brand{ color: #fff }
+  ul li a{
+    color: #fff;
+  }
+  .badge{
+    color: $gray-darker;
+    background-color: #fff;
+  }
+  .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+}
+#logo{ margin-bottom: 15px }

@@ -1,29 +1,33 @@
-%nav.navbar.navbar-default.container
-  .navbar-header
-    %button.navbar-toggle{type: "button", :data=>{target:"#menu_navbar", toggle: "collapse"}}
-      %span.sr-only Toggle navigation
-      %span.icon-bar
-      %span.icon-bar
-      %span.icon-bar
-  .collapse.navbar-collapse#menu_navbar
-    %ul.nav.navbar-nav
-      %li.dropdown
-        = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
-          Categorías
-          %span.caret
-        %ul.dropdown-menu
-          - @categories.each do |category|
-            %li= link_to category, category
-      %li.dropdown
-        = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
-          Modelos
-          %span.caret
-        %ul.dropdown-menu
-          - @product_models.each do |product_model|
-            %li= link_to product_model, product_model
+.container
+  .col-md-4
+    = image_tag "logo.gif", :id=>"logo"
+.container
+  %nav.navbar.navbar-default
+    .navbar-header
+      %button.navbar-toggle{type: "button", :data=>{target:"#menu_navbar", toggle: "collapse"}}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+    .collapse.navbar-collapse#menu_navbar
+      %ul.nav.navbar-nav
+        %li.dropdown
+          = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
+            Categorías
+            %span.caret
+          %ul.dropdown-menu
+            - @categories.each do |category|
+              %li= link_to category, category
+        %li.dropdown
+          = link_to "#", :class=>"dropdown-toggle", "data-toggle"=>"dropdown" do
+            Modelos
+            %span.caret
+          %ul.dropdown-menu
+            - @product_models.each do |product_model|
+              %li= link_to product_model, product_model
 
-    = form_tag(root_path, method: :get, :id => 'search', :class=>"navbar-form navbar-right") do
-      .form-group
-        %input.form-control.input-sm{value: "#{params[:search]}", name: 'search', placeholder: "Busca aquí", type: "text"}
-        = button_tag :type => :submit, :class => "btn btn-sm" do
-          %span.glyphicon.glyphicon-search
+      = form_tag(root_path, method: :get, :id => 'search', :class=>"navbar-form navbar-right") do
+        .form-group
+          %input.form-control.input-sm{value: "#{params[:search]}", name: 'search', placeholder: "Busca aquí", type: "text"}
+          = button_tag :type => :submit, :class => "btn btn-sm" do
+            %span.glyphicon.glyphicon-search
