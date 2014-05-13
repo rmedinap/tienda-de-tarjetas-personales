@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @order = Order.new(order_params)
     @order = current_user.orders.build(order_params)
 
     @order.add_line_items_from_cart @cart
@@ -31,7 +30,7 @@ class OrdersController < ApplicationController
     # if @order.subtotal > 0
     if @order.save
       cookies[:cart_items] = nil
-      redirect_to @order, notice: '¡Orden creada satisfactoriamente!'
+      redirect_to thanks_order_path(@order), notice: '¡Orden creada satisfactoriamente!'
     else
       render action: 'new'
     end

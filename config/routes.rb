@@ -3,7 +3,11 @@ CardStore::Application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   resources :pages
 
-  resources :orders
+  resources :orders do #, only: [:index, :new, :show, :create] do
+    member do
+      get :thanks
+    end
+  end
 
   resources :product_models
 
