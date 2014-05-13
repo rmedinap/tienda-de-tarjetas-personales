@@ -46,19 +46,19 @@
             %tr
               %td= item.product.name
               %td= item.quantity
-              %td= number_to_currency item.product.price
+              %td= number_to_currency item.total_price
           %tr
             %th{:colspan=>"2"} Subtotal
-            %td= @cart.total_price
+            %td= number_to_currency @cart.total_price
           %tr
             %th{:colspan=>"2"} Total
-            %td= @cart.total_price
+            %td= number_to_currency @cart.total_price
 
         %p#order_terms_and_conditions
           = content_tag :label, class: 'check_box' do
             = f.check_box :terms_of_service
             Acepto los
-            = link_to '/pages/1', class: 'fancybox fancybox.ajax'  do
+            = link_to '/pages/1', class: ''  do
               Términos y Condiciones
               %i.icon-external-link
 

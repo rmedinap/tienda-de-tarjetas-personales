@@ -12,25 +12,30 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
+    if @cart.items.empty?
+      redirect_to root_path, notice: "Elija al menos un producto."
+    else
+      @order = Order.new
+    end
   end
 
   def edit
   end
 
   def create
-    @order = Order.new(order_params)
+    # @order = Order.new(order_params)
+    @order = current_user.orders.build(order_params)
 
-    respond_to do |format|
-      if @order.save
-        cookies[:cart_items] = nil
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @order }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @order.errors, status: :unprocessable_entity }
-      end
+    @order.add_line_items_from_cart @cart
+
+    # if @order.subtotal > 0
+    if @order.save
+      cookies[:cart_items] = nil
+      redirect_to @order, notice: '¡Orden creada satisfactoriamente!'
+    else
+      render action: 'new'
     end
+    # end
   end
 
   def update
@@ -59,6 +64,8 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:user_id, :name, :email, :address, :document_number, :payment_type, :special_id, :subtotal, :discount, :terms_of_service)
+      params.require(:order).permit(:user_id, :name, :email, :address, :document_number,
+                                    :payment_type, :special_id, :subtotal, :discount,
+                                    :terms_of_service)
     end
 end
