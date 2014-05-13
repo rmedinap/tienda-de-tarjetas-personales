@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
+  skip_load_resource :only => [:create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, :except => [:show]
 
@@ -22,6 +23,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        cookies[:cart_items] = nil
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render action: 'show', status: :created, location: @order }
       else
@@ -57,6 +59,6 @@ class OrdersController < ApplicationController
     end
 
     def order_params
-      params.require(:order).permit(:user_id, :name, :email, :address, :document_number, :payment_type, :special_id, :subtotal, :discount)
+      params.require(:order).permit(:user_id, :name, :email, :address, :document_number, :payment_type, :special_id, :subtotal, :discount, :terms_of_service)
     end
 end

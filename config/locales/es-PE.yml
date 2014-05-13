@@ -9,6 +9,11 @@ es-PE:
   # ProductUser
   user_name: Nombre
   job_title: Puesto de trabajo
+  # Order
+  document_number: Número de documento
+  address: Dirección
+  payment_type: Tipo de Pago
+  terms_of_service: Términos y condiciones
 
   # Permissions
   unauthorized:

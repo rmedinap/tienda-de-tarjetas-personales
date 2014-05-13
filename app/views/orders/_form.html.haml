@@ -10,8 +10,10 @@
           = f.input :user_id, :as=>:hidden, :input_html=>{:value=> current_user.id}
           = f.input :name, :as=>:hidden, :input_html=>{:value=> current_user.name}
           = f.input :email, :as=>:hidden, :input_html=>{:value=> current_user.email}
-          = f.input :document_number
-          = f.input :address
+          = f.input :document_number,
+            :label => "Número de documento"
+          = f.input :address,
+            :label => "Dirección"
           -# = f.input :special_id
           -# = f.input :subtotal
           -# = f.input :discount
@@ -20,7 +22,18 @@
         %h3 Método de pago
         %hr
         .form-inputs
-          = f.input :payment_type, :as=> :radio_buttons, :collection => Order::PAYMENT_TYPES
+          -# = f.input :payment_type, :as=> :radio_buttons, :collection => Order::PAYMENT_TYPES
+          .control-group.required
+            .controls
+              %h4 Depósito
+              = content_tag :label, class: "radio" do
+                = f.radio_button :payment_type, Order::PAYMENT_TYPES[0][1], :class=>"required radio_buttons"
+                .text-muted Transferencia o Depósito bancario
+              %hr
+              %h4 Pago Contra entrega
+              = content_tag :label, class: "radio" do
+                = f.radio_button :payment_type, Order::PAYMENT_TYPES[1][1]
+                .text-muted Disponible sólo para órdenes menores a S/.500
       .col-md-4
         %h3 Resúmen de la orden
         %hr
