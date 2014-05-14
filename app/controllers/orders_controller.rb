@@ -27,14 +27,12 @@ class OrdersController < ApplicationController
 
     @order.add_line_items_from_cart @cart
 
-    # if @order.subtotal > 0
     if @order.save
       cookies[:cart_items] = nil
       redirect_to thanks_order_path(@order), notice: '¡Orden creada satisfactoriamente!'
     else
       render action: 'new'
     end
-    # end
   end
 
   def update

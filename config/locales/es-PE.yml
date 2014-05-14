@@ -3,6 +3,7 @@ es-PE:
   name: Nombre
   description: Descripción
   price: Precio
+  previous_price: Precio anterior
   image: Imagen
   category_id: Categoría
   product_model_id: Modelo

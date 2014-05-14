@@ -12,7 +12,6 @@ class Order < ActiveRecord::Base
 
   PAYMENT_TYPES =[["Depósito", 1], ["Pago Contra entrega", 2]]
 
-  # after_create :save_total_and_discount
   before_create :save_total_and_discount
 
   def calculate_subtotal
@@ -20,22 +19,23 @@ class Order < ActiveRecord::Base
     subtotal
   end
 
+  # def calculate_discount
+  # end
+
   def save_total_and_discount
     self.subtotal = self.calculate_subtotal
-    # self.discount =
+    # self.discount = self.calculate_discount
+  end
+
+  def total
+    total = (self.subtotal).to_f - (self.discount).to_f
+    total
   end
 
   def add_line_items_from_cart cart
     cart.items.each do |item|
       li = LineItem.from_cart_item item
       line_items << li
-      # @order.line_items.build(
-        # product_id: item.product_id,
-        # product_user_id: item.product_user_id,
-        # name: item.product.try(:name),
-        # total_price: item.total_price,
-        # quantity: item.quantity
-      # )
     end
   end
 end

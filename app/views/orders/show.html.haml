@@ -1,30 +1,60 @@
-%p
-  %b User:
-  = @order.user_id
-%p
-  %b Name:
-  = @order.name
-%p
-  %b Email:
-  = @order.email
-%p
-  %b Address:
-  = @order.address
-%p
-  %b Document number:
-  = @order.document_number
-%p
-  %b Payment type:
-  = @order.payment_type
-%p
-  %b Special:
-  = @order.special_id
-%p
-  %b Subtotal:
-  = @order.subtotal
-%p
-  %b Discount:
-  = @order.discount
+%h1 Detalle del pedido
+%hr
+.row
+  .col-md-6
+    %table.table.table-bordered
+      %tr
+        %th Usuario
+        %td
+          = @order.user.name
+          = "(#{@order.user_id})"
+      %tr
+        %th Email
+        %td= @order.user.email
+      %tr
+        %th Fecha
+        %td= @order.created_at
+  .col-md-6
+    %table.table.table-bordered
+      %tr
+        %th Dirección
+        %td= @order.address
+      %tr
+        %th Número de documento
+        %td= @order.document_number
+      %tr
+        %th Medio de Pago
+        %td= Order::PAYMENT_TYPES.detect{|k| k[1] == @order.payment_type}[0]
+  .row
+    .col-md-12
+      %table.table.table-striped.cart-items-table
+        %tr
+          %th Producto
+          %th Categoría
+          %th Cantidad
+          %th Subtotal
+        - @order.line_items.each do |line|
+          %tr
+            %td
+              .row
+                .col-md-3= image_tag line.product.try(:image).try(:thumb)
+                .col-md-9
+                  %h2= line.name
+                  %p= truncate "#{line.product_user.company_name} - #{line.product_user.user_name}"
+            %td
+              .text= line.product.try(:category)
+            %td
+              .text= line.quantity
+            %td
+              .text= number_to_currency line.total_price
+        %tr
+          %td{:colspan=>2}
+          %th Descuento
+          %td.text= number_to_currency @order.discount
+        %tr
+          %td{:colspan=>2}
+          %th.text TOTAL
+          %th= number_to_currency @order.total
 
 %br
 = edit_tool @order

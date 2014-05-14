@@ -7,7 +7,9 @@
         = f.input :name
         = f.input :description
         = f.input :image, :as => :file
-        = f.input :price
+        .row
+          = f.input :price, wrapper_html: { class: 'col-md-6' }, :label=>"Precio final"
+          = f.input :previous_price, wrapper_html: { class: 'col-md-6' }, :label=>"Precio anterior"
         = f.input :category_id, :collection => @categories
         = f.input :product_model_id, :collection => @product_models
 

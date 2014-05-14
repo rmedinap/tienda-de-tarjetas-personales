@@ -2,30 +2,25 @@
 
 %table.table.table-striped
   %tr
-    %th User
-    %th Name
-    %th Email
-    %th Address
-    %th Document number
-    %th Payment type
-    %th Special
+    %th.text-center Id-Usuario
+    %th Nombre
+    %th Dirección
     %th Subtotal
-    %th Discount
+    %th Descuento
     %th
 
   - @orders.each do |order|
     %tr
-      %td= order.user_id
-      %td= order.name
-      %td= order.email
+      %td.text-center= order.user_id
+      %td
+        = "#{order.name} - "
+        = link_to order.email, user_path(order.user_id)
       %td= order.address
-      %td= order.document_number
-      %td= order.payment_type
-      %td= order.special_id
       %td= order.subtotal
       %td= order.discount
-      %td= show_tool order
-      %td= delete_tool order
+      %td
+        = show_tool order
+        = delete_tool order
       -# %td= usel_tools(order)
 %br
 
