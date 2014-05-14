@@ -7,3 +7,5 @@
     .col-md-12
       = link_to "Detalles", product
       = link_to "Personalizar", new_product_product_user_url(product), :class=>"btn btn-primary pull-right"
+  - if product.previous_price.present?
+    .discount_tag_listing= "-#{(100 - (product.price.to_f * 100 / product.previous_price.to_f)).to_i}%"

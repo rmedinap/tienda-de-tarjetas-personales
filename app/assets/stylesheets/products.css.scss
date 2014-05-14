@@ -16,14 +16,40 @@
 
 #product_detail{
   h2{ margin-top: 0 }
+  h3{ margin-top: 10px }
+  h4{ margin-top: 15px }
 }
 
 /* ShoppingCart */
 .cart-items-table{
-  h2{ margin: 0 }
+  h4{ margin: 0 }
   .text{
     margin-top: 10px;
     font-size: 16px;
     font-weight: 300;
   }
+}
+.discount_tag_listing{
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  top: -12px;
+  right: -5px;
+  background-image: url("products/discount_tag_listing.png");
+  padding-top: 17px;
+  padding-left: 8px;
+  color: #fff;
+  font-size: 17px;
+}
+.discount_tag_detail{
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  top: -30px;
+  left: -20px;
+  background-image: url("products/discount_tag_detail.png");
+  padding-top: 32px;
+  padding-left: 20px;
+  color: #fff;
+  font-size: 23px;
 }

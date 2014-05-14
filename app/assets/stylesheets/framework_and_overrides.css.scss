@@ -7,6 +7,8 @@
 // import the CSS framework
 @import "bootstrap";
 
+$base: #2FADE7;
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
@@ -100,15 +102,12 @@ section {
   }
 }
 
-h2{
-  font-size: 18px;
-}
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
   background-color: #BDDCF7;
 }
 #navbar_top_navigation{
-  background-color: #2FADE7;
+  background-color: $base;
   .navbar-brand{ color: #fff }
   ul li a{
     color: #fff;
@@ -122,3 +121,14 @@ h2{
   }
 }
 #logo{ margin-bottom: 15px }
+.base_color{ color: $base }
+.strike{ position: relative }
+.strike::after{
+  content: '';
+  border-bottom: 2px solid #000;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+}
+

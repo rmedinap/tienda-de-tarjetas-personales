@@ -20,7 +20,7 @@
                   = image_tag product.image.thumb
               .col-md-9
                 = link_to [product, product_user] do
-                  %h2= product
+                  %h4= product
                 %p= truncate "#{product_user.company_name} - #{product_user.user_name} - #{product_user.job_title}",
                   length: 50, separator: ' '
           %td
