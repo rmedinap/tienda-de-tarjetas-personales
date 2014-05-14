@@ -1,27 +1,71 @@
-%h1 Listing orders
+.row
+  .col-md-8
+    %h1 Ordenes
+  .col-md-4
+    %br
+    .pull-right= new_tool Order
+%hr
 
-%table.table.table-striped
-  %tr
-    %th.text-center Id-Usuario
-    %th Nombre
-    %th Dirección
-    %th Subtotal
-    %th Descuento
-    %th
+%ul.nav.nav-tabs.nav-justified
+  %li.active
+    = link_to "Todas las ordenes", "#all_orders", "data-toggle"=>"tab"
+  %li
+    = link_to "Productos mas pedidos", "#popular_products", "data-toggle"=>"tab"
+.tab-content
+  .tab-pane.active#all_orders
+    %br
+    %table.table.table-striped
+      %tr
+        %th.text-center Id-Usuario
+        %th Nombre
+        %th Dirección
+        %th Subtotal
+        %th
 
-  - @orders.each do |order|
-    %tr
-      %td.text-center= order.user_id
-      %td
-        = "#{order.name} - "
-        = link_to order.email, user_path(order.user_id)
-      %td= order.address
-      %td= order.subtotal
-      %td= order.discount
-      %td
-        = show_tool order
-        = delete_tool order
-      -# %td= usel_tools(order)
-%br
+      - @orders.each do |order|
+        %tr
+          %td.text-center= order.user_id
+          %td
+            = "#{order.name} - "
+            = link_to order.email, user_path(order.user_id)
+          %td= order.address
+          %td= order.subtotal
+          %td
+            = show_tool order
+            = delete_tool order
+  .tab-pane#popular_products
+    %br
+    %table.table.table-striped
+      %tr
+        %th Número
+        %th Id
+        %th Producto
+        %th Cantidad
+        %td
+      - LineItem.calculate_popular_products.each_with_index do |product_array, i|
+        - product = Product.find(product_array[0][0].to_i) rescue product_array[0]
+        - if product.is_a?Product
+          %tr
+            %th
+              %span.label.label-default= i
+            %td
+              .row
+                .col-md-3= image_tag product.try(:image).try(:thumb)
+                .col-md-9
+                  %h4= product.name
+            %td= product.id
+            %td= product_array[1]
+            %td= link_to "Ver producto", product, :class=>"btn btn-default"
+        - else
+          %tr
+            %td
+              %span.label.label-default= i
+            %td
+              .row
+                .col-md-3
+                .col-md-9
+                  %h4= product[1]
+            %td= product[0]
+            %td= product_array[1]
+            %td
 
-= new_tool Order

@@ -7,7 +7,7 @@
         %th Usuario
         %td
           = @order.user.name
-          = "(#{@order.user_id})"
+          = "(Id: #{@order.user_id})"
       %tr
         %th Email
         %td= @order.user.email
@@ -25,36 +25,35 @@
       %tr
         %th Medio de Pago
         %td= Order::PAYMENT_TYPES.detect{|k| k[1] == @order.payment_type}[0]
-  .row
-    .col-md-12
-      %table.table.table-striped.cart-items-table
+%br
+.row
+  .col-md-12
+    %table.table.table-striped.cart-items-table
+      %tr
+        %th Producto
+        %th Categoría
+        %th Cantidad
+        %th Subtotal
+      - @order.line_items.each do |line|
         %tr
-          %th Producto
-          %th Categoría
-          %th Cantidad
-          %th Subtotal
-        - @order.line_items.each do |line|
-          %tr
-            %td
-              .row
-                .col-md-3= image_tag line.product.try(:image).try(:thumb)
-                .col-md-9
-                  %h4= line.name
-                  %p= truncate "#{line.product_user.company_name} - #{line.product_user.user_name}"
-            %td
-              .text= line.product.try(:category)
-            %td
-              .text= line.quantity
-            %td
-              .text= number_to_currency line.total_price
-        %tr
-          %td{:colspan=>2}
-          %th Descuento
-          %td.text= number_to_currency @order.discount
-        %tr
-          %td{:colspan=>2}
-          %th.text TOTAL
-          %th= number_to_currency @order.total
+          %td
+            .row
+              .col-md-3= image_tag line.product.try(:image).try(:thumb)
+              .col-md-9
+                %h4= line.name
+                %p= truncate "#{line.product_user.company_name} - #{line.product_user.user_name}"
+          %td
+            .text= line.product.try(:category)
+          %td
+            .text= line.quantity
+          %td
+            .text= number_to_currency line.total_price
+      %tr
+        %td{:colspan=>2}
+          %th.text
+            %b TOTAL
+        %td.text
+          %b= number_to_currency @order.total
 
 %br
 = edit_tool @order

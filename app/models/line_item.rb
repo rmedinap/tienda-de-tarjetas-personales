@@ -13,4 +13,18 @@ class LineItem < ActiveRecord::Base
     li.quantity     = cart_item.quantity
     li
   end
+
+  def self.calculate_present_popular_products quantity = 10
+    # Only existing products list
+    lines = select(:id, :product_id).includes(:product)
+            .select{|li| li.product != nil}.map{|li| li.id}
+    popular_products = where("id IN (?)", lines).group(:product).count.first(quantity)
+    popular_products
+  end
+
+  def self.calculate_popular_products quantity = 10
+    deleted_popular_products = group(:product_id, :name).count
+    deleted_popular_products
+  end
+
 end

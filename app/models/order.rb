@@ -19,12 +19,8 @@ class Order < ActiveRecord::Base
     subtotal
   end
 
-  # def calculate_discount
-  # end
-
   def save_total_and_discount
     self.subtotal = self.calculate_subtotal
-    # self.discount = self.calculate_discount
   end
 
   def total
@@ -38,4 +34,5 @@ class Order < ActiveRecord::Base
       line_items << li
     end
   end
+
 end
