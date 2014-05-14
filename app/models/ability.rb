@@ -12,7 +12,7 @@ class Ability
       cannot :index,  Category
       can :show,      ProductModel
       cannot :index,  ProductModel
-      can [:show, :create], Order, :user_id => user.id
+      can [:show, :create, :thanks], Order, :user_id => user.id
       cannot :index,  Order
       can :show,      User
       cannot :index,  User

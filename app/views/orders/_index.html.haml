@@ -1,0 +1,19 @@
+%table.table.table-striped
+  %tr
+    %th.text-center Id-Usuario
+    %th Nombre
+    %th Dirección
+    %th Subtotal
+    %th
+
+  - orders.each do |order|
+    %tr
+      %td.text-center= order.user_id
+      %td
+        = "#{order.name} - "
+        = link_to order.email, user_path(order.user_id)
+      %td= order.address
+      %td= order.subtotal
+      %td
+        = show_tool order
+        = delete_tool order

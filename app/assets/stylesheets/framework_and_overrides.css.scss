@@ -7,7 +7,8 @@
 // import the CSS framework
 @import "bootstrap";
 
-$base: #2FADE7;
+$base:      #2FADE7;
+$base_dark: #269BD1;
 
 // make all images responsive by default
 img {
@@ -104,13 +105,19 @@ section {
 
 .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
   color: white;
-  background-color: #BDDCF7;
+  background-color: $base;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus{
+  background-color: $base_dark;
 }
 #navbar_top_navigation{
   background-color: $base;
   .navbar-brand{ color: #fff }
   ul li a{
     color: #fff;
+  }
+  ul li .dropdown-menu a{
+    color: #000;
   }
   .badge{
     color: $gray-darker;

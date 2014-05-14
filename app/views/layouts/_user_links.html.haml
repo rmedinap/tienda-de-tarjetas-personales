@@ -4,14 +4,25 @@
 %li
   = link_to "|", "#", :class=>"btn disabled"
 - if user_signed_in?
-  %li
-    = link_to edit_user_registration_path do
-      %span.glyphicon.glyphicon-edit
-      Editar cuenta
-  %li
-    = link_to destroy_user_session_path, :method=>'delete' do
-      %span.glyphicon.glyphicon-off
-      Cerrar sesión
+  %li.dropdown
+    %a.dropdown-toggle{"data-toggle"=>"dropdown", :href=>"#"}
+      %span.glyphicon.glyphicon-user
+      = current_user.name
+      %b.caret
+    %ul.dropdown-menu
+      %li
+        = link_to edit_user_registration_path do
+          %span.glyphicon.glyphicon-edit
+          Editar cuenta
+      %li
+        = link_to "#{user_path current_user}#mis-ordenes" do
+          %span.glyphicon.glyphicon-list-alt
+          Mis ordenes
+      %li.divider
+      %li
+        = link_to destroy_user_session_path, :method=>'delete' do
+          %span.glyphicon.glyphicon-off
+          Cerrar sesión
 - else
   %li
     = link_to new_user_session_path do
