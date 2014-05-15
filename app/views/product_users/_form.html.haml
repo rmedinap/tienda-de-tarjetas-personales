@@ -19,7 +19,7 @@
         = f.button :submit
     .col-md-8
       .panel.panel-default.product-user-content
-        #product_user_content
+        #product_user_content{ :xmlns=>"http://www.w3.org/1999/xhtml"}
           #company_name.element
             .editable{:contenteditable=>'true'}
           #company_message.element
@@ -37,10 +37,9 @@
           #website.element
             .editable{:contenteditable=>'true'}
 
-          #product_user_background= image_tag @product.image.background, :id=>"background_card"
+          #product_user_background{:style=>"background-image: url(#{@product.image.background})"}
 
-%div.hidden
+%div
   %canvas{:id=>"canvas", :width=>"620", :height=>"363"}
     No soportado
-  %img{:id=>"img_canvas", :width=>"620", :height=>"363"}
-  = link_to "OPEN", "#", :id=>"op"
+  %img{:id=>"img_canvas", :width=>"620", :height=>"363", :crossorigin=>"anonymous" }

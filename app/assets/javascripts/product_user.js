@@ -41,16 +41,16 @@ $(function() {
 
   // Reload page warning
   if ($("#current_page").length > 0 ){
+    $(".product-user-content div").each(function(){
+      styles = css($(this));
+      $(this).css(styles);
+    });
+
     window.onbeforeunload = function(e) {
       return 'Perderás todas las modificaciones hechas hasta ahora.';
     };
   }
 
-
-  $("#op").click(function(){
-    window.open('', document.getElementById('canvas').toDataURL());
-    // window.open('', $('#canvas').toDataURL());
-  });
 });
 
 // Draw test
@@ -60,13 +60,12 @@ function draw(content) {
   if (canvas.getContext){
     var ctx = canvas.getContext('2d');
     console.log("soporta 2d");
-    ctx.drawImage(document.getElementById('background_card'),0,0);
+    // ctx.drawImage(document.getElementById('background_card'),0,0);
+    console.log(content);
 
-    var data = '<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">' +
+    var data = '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="363">' +
     '<foreignObject width="100%" height="100%">' +
-    '<div xmlns="http://www.w3.org/1999/xhtml" style="font-size:14px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">' +
     content +
-    '</div>' +
     '</foreignObject>' +
     '</svg>';
     var DOMURL = window.URL || window.webkitURL || window;
@@ -79,25 +78,54 @@ function draw(content) {
       DOMURL.revokeObjectURL(url);
     }
 
-    $("#img_canvas").attr("src", url);
-
     img.src = url;
 
-    // var strDataURI = canvas.toDataURL();
-    // return document.getElementById('product_user_content');
-    // savedData = new Image();
-    // savedData.src = canvas.toDataURL("image/png");
-    console.log("Soporta 2d");
-    // console.log(strDataURI);
+    // $("#img_canvas").attr("src", url);
+    // image = canvas.toDataURL("image/png");
+    // image = canvas.toDataURL();
+    $("#img_canvas").attr("src", url);
+
   } else {
     console.log("No soporta 2d");
   }
 }
 
 function get_html(){
-  container = $("#product_user_content");
+  container = $(".product-user-content");
   html = container.html();
   html = html.replace($("#product_user_background").html(), "");
   html = html.replace(/\s+/g, ' ');
   return html;
+}
+
+function css(a) {
+  var sheets = document.styleSheets, o = {};
+  for (var i in sheets) {
+    var rules = sheets[i].rules || sheets[i].cssRules;
+    for (var r in rules) {
+      if (a.is(rules[r].selectorText)) {
+        o = $.extend(o, css2json(rules[r].style), css2json(a.attr('style')));
+      }
+    }
+  }
+  return o;
+}
+
+function css2json(css) {
+  var s = {};
+  if (!css) return s;
+  if (css instanceof CSSStyleDeclaration) {
+    for (var i in css) {
+      if ((css[i]).toLowerCase) {
+        s[(css[i]).toLowerCase()] = (css[css[i]]);
+      }
+    }
+  } else if (typeof css == "string") {
+    css = css.split("; ");
+    for (var i in css) {
+      var l = css[i].split(": ");
+      s[l[0].toLowerCase()] = (l[1]);
+    }
+  }
+  return s;
 }

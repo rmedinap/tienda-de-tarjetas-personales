@@ -1,3 +1,4 @@
+CKEDITOR.disableAutoInline = true;
 CKEDITOR.editorConfig = function( config )
 {
   config.height = "300";
@@ -19,12 +20,3 @@ CKEDITOR.editorConfig = function( config )
   config.toolbar = 'medium';
 };
 
-CKEDITOR.replace('ad_description', {
-  // mini
-  toolbar:
-    [
-      { name: 'clipboard', items : [ 'Cut','Copy','Paste','-','Undo','Redo' ] },
-      { name: 'basicstyles', items : [ 'Bold','Italic', 'Underline', '-', 'RemoveFormat' ] },
-      { name: 'paragraph', items : [ 'NumberedList','BulletedList','-','Outdent','Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] }
-    ]
-});
