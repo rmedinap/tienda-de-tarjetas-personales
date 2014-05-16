@@ -1,38 +1,52 @@
 %p#notice= notice
 
-%p
-  %b Product:
-  = @product_user.product_id
-%p
-  %b Company name:
-  = @product_user.company_name
-%p
-  %b Company message:
-  = @product_user.company_message
-%p
-  %b User name:
-  = @product_user.user_name
-%p
-  %b Job title:
-  = @product_user.job_title
-%p
-  %b Address:
-  = @product_user.address
-%p
-  %b Phone:
-  = @product_user.phone
-%p
-  %b Email:
-  = @product_user.email
-%p
-  %b Website:
-  = @product_user.website
+.row
+  .col-md-5
+    %table.table.table-bordered
+      %tr
+        %th Product
+        %td= @product_user.product
+      %tr
+        %th Company name:
+        %td= @product_user.company_name
+      %tr
+        %th Company message:
+        %td= @product_user.company_message
+      %tr
+        %th User name:
+        %td= @product_user.user_name
+      %tr
+        %th Job title:
+        %td= @product_user.job_title
+      %tr
+        %th Address:
+        %td= @product_user.address
+      %tr
+        %th Phone:
+        %td= @product_user.phone
+      %tr
+        %th Email:
+        %td= @product_user.email
+      %tr
+        %th Website:
+        %td= @product_user.website
 
-= button_to "Añadir al carrito", {:controller => "cart_items",
-  :action => "create", :id => @product_user.id, :product_id => @product.id, :quantity => 1},
-  :class => "btn btn-success"
+    .row
+      .col-md-6
+        = edit_tool [@product, @product_user]
+        = list_tool ProductUser
+      .col-md-6
+        = button_to "Añadir al carrito", {:controller => "cart_items",
+      :action => "create", :id => @product_user.id, :product_id => @product.id, :quantity => 1},
+      :class => "btn btn-success btn-block"
+
+  .col-md-7
+    .preview_content
+      %img{:src=>"/assets/product_users/preview.jpg", :id=>"back"}
+      %img{:src=>@product_user.image_svg, :id=>"preview"}
+
+    -# = @product_user.image_svg
+
 
 %br
 
-= edit_tool [@product, @product_user]
-= list_tool ProductUser

@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'thin'
 	gem 'highline'
+  gem "rails-erd"
 end
 group :production do
   gem 'unicorn'

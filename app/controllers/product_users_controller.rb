@@ -1,4 +1,6 @@
 class ProductUsersController < ApplicationController
+  load_and_authorize_resource
+  skip_load_resource :only => [:create]
   before_action :set_product
   before_action :set_product_user, only: [:show, :edit, :update, :destroy]
 
@@ -56,7 +58,9 @@ class ProductUsersController < ApplicationController
     end
 
     def product_user_params
-      params.require(:product_user).permit(:product_id, :company_name, :company_message, :user_name, :job_title, :address, :phone, :email, :website)
+      params.require(:product_user).permit(:product_id, :company_name, :company_message,
+                                           :user_name, :job_title, :address, :phone,
+                                           :email, :website, :image_svg)
     end
 
     def set_product

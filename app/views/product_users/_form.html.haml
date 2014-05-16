@@ -14,6 +14,8 @@
         = f.input :phone, :placeholder => "Teléfono/Otro"
         = f.input :email, :placeholder => "Correo electrónico/Otro"
         = f.input :website, :placeholder => "Página web/Otro"
+        .hidden
+          = f.input :image_svg
 
       .form-actions
         = f.button :submit
@@ -39,7 +41,8 @@
 
           #product_user_background{:style=>"background-image: url(#{@product.image.background})"}
 
-%div
+%div.hidden
   %canvas{:id=>"canvas", :width=>"620", :height=>"363"}
     No soportado
   %img{:id=>"img_canvas", :width=>"620", :height=>"363", :crossorigin=>"anonymous" }
+

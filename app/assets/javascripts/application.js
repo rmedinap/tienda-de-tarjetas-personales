@@ -22,4 +22,10 @@
 //= require jquery-ui
 //= require ckeditor/override
 //= require ckeditor/init
+//  require saveSvgAsPng
+//  require canvg/rgbcolor
+//  require canvg/StackBlur
+//  require canvg/canvg
+//  require canvas2image/base64
+//  require canvas2image/canvas2image
 //= require_tree .

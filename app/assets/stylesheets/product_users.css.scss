@@ -60,3 +60,17 @@
     position: absolute;
   }
 }
+.preview_content{
+  #back{
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-left: 0;
+  }
+  #preview{
+    position: absolute;
+    top: 84px;
+    left: 123px;
+    width: 229px;
+  }
+}

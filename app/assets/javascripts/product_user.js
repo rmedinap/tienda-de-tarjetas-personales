@@ -11,7 +11,7 @@ $(function() {
     div = $(this).attr('id').split("product_user_")[1];
     $("#" + div + " .editable").text($(this).val()).removeClass("text-muted");
     html = get_html();
-    draw(html);
+    // draw(html);
   });
 
   $("#product_user_content .editable").keyup(function(){
@@ -29,7 +29,7 @@ $(function() {
   }).mousedown(function(){
     $(this).draggable( {disabled: false});
     html = get_html();
-    draw(html);
+    // draw(html);
   }).mouseleave(function(){
     $(this).draggable( {disabled: false});
   });
@@ -45,23 +45,27 @@ $(function() {
       styles = css($(this));
       $(this).css(styles);
     });
-
-    window.onbeforeunload = function(e) {
-      return 'Perderás todas las modificaciones hechas hasta ahora.';
-    };
   }
+
+  $("#product_user_form").submit(function(e) {
+    // e.preventDefault();
+    draw();
+    src = $("#img_canvas").attr("src");
+    $("#product_user_image_svg").val(src);
+    console.log(src);
+  });
 
 });
 
 // Draw test
-function draw(content) {
+function draw() {
+  var content = get_html();
   var canvas = $('#canvas').get(0);
 
   if (canvas.getContext){
     var ctx = canvas.getContext('2d');
     console.log("soporta 2d");
     // ctx.drawImage(document.getElementById('background_card'),0,0);
-    console.log(content);
 
     var data = '<svg xmlns="http://www.w3.org/2000/svg" width="620" height="363">' +
     '<foreignObject width="100%" height="100%">' +
@@ -80,10 +84,7 @@ function draw(content) {
 
     img.src = url;
 
-    // $("#img_canvas").attr("src", url);
-    // image = canvas.toDataURL("image/png");
-    // image = canvas.toDataURL();
-    $("#img_canvas").attr("src", url);
+    $("#img_canvas").attr("src", "data:image/svg+xml;charset=utf-8," + data);
 
   } else {
     console.log("No soporta 2d");

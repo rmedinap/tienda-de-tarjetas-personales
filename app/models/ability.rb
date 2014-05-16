@@ -12,6 +12,8 @@ class Ability
       cannot :index,  Category
       can :show,      ProductModel
       cannot :index,  ProductModel
+      can [:show, :create, :update], ProductUser
+      cannot :index,  ProductUser
       can [:show, :create, :thanks], Order, :user_id => user.id
       cannot :index,  Order
       can :show,      User
