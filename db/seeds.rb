@@ -16,6 +16,9 @@ puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
 user.add_role :admin
+user = User.find_or_create_by_email :name => "User example", :email => "user@example", :password => "12345678", :password_confirmation => "12345678"
+puts 'user: ' << user.name
+user.add_role :user
 
 puts "########################"
 puts "###   LOADING DATA   ###"

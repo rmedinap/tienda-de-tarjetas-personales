@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140516143028) do
     t.string   "email"
     t.string   "document_number"
     t.string   "phone"
-    t.string   "type_contact"
+    t.string   "contact_type"
     t.text     "description"
     t.integer  "user_id"
     t.datetime "created_at"

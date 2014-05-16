@@ -1,27 +1,24 @@
-%p#notice= notice
-
 %p
-  %b Name:
+  %b Nombre:
   = @contact.name
 %p
   %b Email:
   = @contact.email
 %p
-  %b Document number:
+  %b Número de documento:
   = @contact.document_number
 %p
-  %b Phone:
+  %b Teléfono:
   = @contact.phone
 %p
-  %b Type contact:
-  = @contact.type_contact
+  %b Tipo de contacto:
+  = Contact::CONTACT_TYPE.detect{|k| k[1] == @contact.contact_type.to_i}[0]
 %p
-  %b Description:
+  %b Descripción:
   = @contact.description
 %p
-  %b User:
-  = @contact.user_id
+  %b Usuario:
+  = @contact.user
 
-= link_to 'Edit', edit_contact_path(@contact)
-\|
-= link_to 'Back', contacts_path
+= edit_tool @contact
+= list_tool Contact

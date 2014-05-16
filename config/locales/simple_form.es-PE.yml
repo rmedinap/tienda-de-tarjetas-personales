@@ -25,7 +25,7 @@ es-PE:
         email: "Email"
         password: 'Clave'
         password_confirmation: 'Confirmar clave'
-        name: 'Nombre y Apellidos'
+        name: 'Nombre'
         gender: 'Género'
         birth_date: 'Fecha de Nacimiento'
         phone: "Teléfono y/o celular"
@@ -40,6 +40,8 @@ es-PE:
         billing_address_id: "Boleta/Factura para:"
         content: "Contenido"
         description: "Breve descripción"
+        document_number: "Número de documento"
+        type_contact: Tipo de Contacto
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'

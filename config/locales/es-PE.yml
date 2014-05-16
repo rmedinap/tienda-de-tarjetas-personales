@@ -15,8 +15,13 @@ es-PE:
   address: Dirección
   payment_type: Tipo de Pago
   terms_of_service: Términos y condiciones
+  type_contact: Tipo de Contacto
   # Banner
   link: Link
+  # Contact
+  email: Email
+  phone: Teléfono
+
 
   # Permissions
   unauthorized:

@@ -1,31 +1,6 @@
-%h1 Listing contacts
+%h1 Listado contactos
 
-%table
-  %tr
-    %th Name
-    %th Email
-    %th Document number
-    %th Phone
-    %th Type contact
-    %th Description
-    %th User
-    %th
-    %th
-    %th
-
-  - @contacts.each do |contact|
-    %tr
-      %td= contact.name
-      %td= contact.email
-      %td= contact.document_number
-      %td= contact.phone
-      %td= contact.type_contact
-      %td= contact.description
-      %td= contact.user_id
-      %td= link_to 'Show', contact
-      %td= link_to 'Edit', edit_contact_path(contact)
-      %td= link_to 'Destroy', contact, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+= render 'index', :contacts=>@contacts
 %br
 
-= link_to 'New Contact', new_contact_path
+= new_tool Contact

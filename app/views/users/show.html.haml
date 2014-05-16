@@ -7,9 +7,19 @@
       #{@user.email if @user.email}
     #mis-ordenes
     = link_to 'Edit account', edit_user_path, :class=>"btn btn-default"
-
 .panel.panel-default
   .panel-heading
     %h3.panel-title Mis ordenes
   .panel.panel-body
-    = render 'orders/index', :orders => @user.orders
+    - if @user.orders.present?
+      = render 'orders/index', :orders => @user.orders
+    - else
+      No tiene ordenes.
+.panel.panel-default
+  .panel-heading
+    %h3.panel-title Contacto
+  .panel.panel-body
+    - if @user.contacts.present?
+      = render 'contacts/index', :contacts=>@user.contacts
+    - else
+      No se ha contactado con nosotros.

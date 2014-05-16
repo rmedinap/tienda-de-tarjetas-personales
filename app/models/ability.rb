@@ -20,6 +20,8 @@ class Ability
       cannot :index,  User
       can :show,      Page
       cannot :index,  Page
+      can [:show, :create], Contact
+      cannot :index,  Contact
     end
     # Define abilities for the passed in user here. For example:
     #

@@ -1,0 +1,24 @@
+%table.table.table-striped
+  %tr
+    %th Nombre
+    %th Email
+    %th Número de documento
+    %th Teléfono
+    %th Tipo
+    %th Descripción
+    %th Usuario
+    %th
+
+  - contacts.each do |contact|
+    %tr
+      %td= contact.name
+      %td= contact.email
+      %td= contact.document_number
+      %td= contact.phone
+      %td= Contact::CONTACT_TYPE.detect{|k| k[1] == contact.contact_type.to_i}[0]
+      %td= truncate contact.description, :length => 120, :separator => ' '
+      %td= contact.user
+      %td
+        = show_tool contact
+        = delete_tool contact
+
