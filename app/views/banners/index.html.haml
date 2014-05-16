@@ -1,0 +1,21 @@
+%h1 Listing banners
+
+%table
+  %tr
+    %th Image
+    %th Link
+    %th
+    %th
+    %th
+
+  - @banners.each do |banner|
+    %tr
+      %td= banner.image
+      %td= banner.link
+      %td= link_to 'Show', banner
+      %td= link_to 'Edit', edit_banner_path(banner)
+      %td= link_to 'Destroy', banner, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Banner', new_banner_path
