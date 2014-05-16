@@ -1,5 +1,7 @@
 CardStore::Application.routes.draw do
 
+  resources :contacts
+
   resources :banners
 
   mount Ckeditor::Engine => '/ckeditor'

@@ -1,0 +1,15 @@
+= simple_form_for(@contact) do |f|
+  -# = f.error_notification
+  = render 'layouts/error_messages', :target => f.object
+
+  .form-inputs
+    = f.input :name
+    = f.input :email
+    = f.input :document_number
+    = f.input :phone
+    = f.input :type_contact
+    = f.input :description
+    = f.input :user_id
+
+  .form-actions
+    = f.button :submit
