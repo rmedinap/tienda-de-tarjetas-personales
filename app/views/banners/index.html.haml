@@ -8,8 +8,8 @@
 
   - @banners.each do |banner|
     %tr
-      %td= image_tag banner.image
-      %td= banner.link
+      %td= image_tag banner.image.thumb
+      %td= link_to banner.link, banner.link
       %td= user_tools banner
 
 %br
