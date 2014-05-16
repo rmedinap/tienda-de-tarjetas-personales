@@ -7,9 +7,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to 'Home', root_path, class: 'navbar-brand'
+      -# = link_to 'Home', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse#navbar_top
-      .col-md-6
+      %div{class: "#{current_user.present? && current_user.has_role?(:admin) ? "col-md-7" : "col-md-6"}"}
         %ul.nav.navbar-nav
           = render 'layouts/navigation_links'
       .col-md-5

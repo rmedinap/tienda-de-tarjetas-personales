@@ -1,12 +1,9 @@
-%p#notice= notice
-
 %p
   %b Image:
-  = @banner.image
+  = image_tag @banner.image
 %p
   %b Link:
   = @banner.link
 
-= link_to 'Edit', edit_banner_path(@banner)
-\|
-= link_to 'Back', banners_path
+= edit_tool @banner
+= list_tool Banner
