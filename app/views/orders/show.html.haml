@@ -28,32 +28,7 @@
 %br
 .row
   .col-md-12
-    %table.table.table-striped.cart-items-table
-      %tr
-        %th Producto
-        %th Categoría
-        %th Cantidad
-        %th Subtotal
-      - @order.line_items.each do |line|
-        %tr
-          %td
-            .row
-              .col-md-3= image_tag line.product.try(:image).try(:thumb)
-              .col-md-9
-                %h4= line.name
-                %p= truncate "#{line.product_user.company_name} - #{line.product_user.user_name}"
-          %td
-            .text= line.product.try(:category)
-          %td
-            .text= line.quantity
-          %td
-            .text= number_to_currency line.total_price
-      %tr
-        %td{:colspan=>2}
-          %th.text
-            %b TOTAL
-        %td.text
-          %b= number_to_currency @order.total
+    = render 'summary'
 
 %br
 = edit_tool @order
