@@ -24,7 +24,7 @@ puts "########################"
 puts "###   LOADING DATA   ###"
 puts "########################"
 categories = ['Educación', 'Entretenimiento', 'Negocios']
-product_models = ['Bordes redondeados', 'Bordes en punta', 'Brillante']
+product_models = ['Brillante', 'Mate', 'Brillo sectorizado', 'Boleados']
 
 product_names = [['Primer', 'Segundo', 'Tercer'], ['Cuarto', 'Quinto', 'Sexto'], ['Séptimo', 'Octavo', 'Noveno']]
 product_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.

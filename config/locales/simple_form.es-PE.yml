@@ -41,7 +41,7 @@ es-PE:
         content: "Contenido"
         description: "Breve descripción"
         document_number: "Número de documento"
-        type_contact: Tipo de Contacto
+        contact_type: Tipo de Contacto
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'

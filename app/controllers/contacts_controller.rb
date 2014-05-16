@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   load_and_authorize_resource
   skip_load_resource :only => [:create]
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @contacts = Contact.all
