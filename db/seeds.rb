@@ -7,32 +7,44 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Environment variables (ENV['...']) can be set in the file .env file.
+puts " "
 puts 'ROLES'
 YAML.load(ENV['ROLES']).each do |role|
   Role.find_or_create_by_name(role)
   puts 'role: ' << role
 end
+puts " "
 puts 'DEFAULT USERS'
 user = User.find_or_create_by_email :name => ENV['ADMIN_NAME'].dup, :email => ENV['ADMIN_EMAIL'].dup, :password => ENV['ADMIN_PASSWORD'].dup, :password_confirmation => ENV['ADMIN_PASSWORD'].dup
 puts 'user: ' << user.name
+puts 'email: ' << user.email
+puts 'pass: ' << user.password
 user.add_role :admin
-user = User.find_or_create_by_email :name => "User example", :email => "user@example", :password => "12345678", :password_confirmation => "12345678"
+user = User.find_or_create_by_email :name => "User example", :email => "user@example.com", :password => "12345678", :password_confirmation => "12345678"
 puts 'user: ' << user.name
+puts 'email: ' << user.email
+puts 'pass: ' << user.password
 user.add_role :user
 
+puts " "
 puts "########################"
 puts "###   LOADING DATA   ###"
 puts "########################"
-categories = ['Educación', 'Entretenimiento', 'Negocios']
+categories = ['Educación', 'Entretenimiento', 'Negocios', 'Arte']
 product_models = ['Brillante', 'Mate', 'Brillo sectorizado', 'Boleados']
 
-product_names = [['Primer', 'Segundo', 'Tercer'], ['Cuarto', 'Quinto', 'Sexto'], ['Séptimo', 'Octavo', 'Noveno']]
+product_names = [['Primer', 'Segundo', 'Tercer'], ['Cuarto', 'Quinto', 'Sexto'], ['Séptimo', 'Octavo', 'Noveno'], ['Décimo', 'Undécimo', 'Duodécimo']]
 product_description = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
                       Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                       Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim."
 product_image = "product_test_123.jpeg"
 product_prices = [10, 5]
 index = 0
+
+puts " "
+puts "----------------------------------------"
+puts "###   LOADING CATEGORIES & PRODUCTS  ###"
+puts "----------------------------------------"
 
 categories.each_with_index do |category_name, i|
   category = Category.find_or_create_by(name: category_name)
@@ -50,3 +62,21 @@ categories.each_with_index do |category_name, i|
     puts "      - #{product.product_model.to_s}"
   end
 end
+
+puts " "
+puts "---------------------------"
+puts "###   LOADING BANNERS   ###"
+puts "---------------------------"
+
+banners = ["banner1.jpg", "banner2.jpeg"]
+banners.each do |b|
+  banner        = Banner.new
+  banner.image  = File.open(File.join(Rails.root, "/app/assets/images/banners/#{b}"))
+  banner.save!
+  puts " -- #{b}"
+end
+
+puts " "
+puts "#########################"
+puts "###        END        ###"
+puts "#########################"
