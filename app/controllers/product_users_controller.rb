@@ -23,7 +23,7 @@ class ProductUsersController < ApplicationController
 
     respond_to do |format|
       if @product_user.save
-        format.html { redirect_to product_product_user_url(@product, @product_user), notice: 'Product personalizado creado satisfactoriamente.' }
+        format.html { redirect_to product_product_user_url(@product, @product_user), notice: 'Producto creado satisfactoriamente.' }
         format.json { render action: 'show', status: :created, location: @product_user }
       else
         format.html { render action: 'new' }
@@ -35,7 +35,7 @@ class ProductUsersController < ApplicationController
   def update
     respond_to do |format|
       if @product_user.update(product_user_params)
-        format.html { redirect_to product_product_user_url(@product, @product_user), notice: 'Producto personalizado actualizado satisfactoriamente.' }
+        format.html { redirect_to product_product_user_url(@product, @product_user), notice: 'Producto actualizado satisfactoriamente.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

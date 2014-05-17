@@ -14,7 +14,7 @@ es-PE:
   productmodel: Modelo
   active: Activo
   # ProductUser
-  productuser: Producto personalizado
+  productuser: Producto
   user_name: Nombre
   job_title: Puesto de trabajo
   # Order
