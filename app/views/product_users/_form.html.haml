@@ -18,7 +18,8 @@
           = f.input :image_svg
 
       .form-actions
-        = f.button :submit
+        - object = t f.object.class.name.downcase
+        = f.button :submit, "#{f.object.new_record? ? "Crear #{object}" : "Actualizar #{object}"}"
     .col-md-8
       .panel.panel-default.product-user-content
         #product_user_content{ :xmlns=>"http://www.w3.org/1999/xhtml"}
