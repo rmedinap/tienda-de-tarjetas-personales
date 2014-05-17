@@ -45,6 +45,7 @@ es-PE:
         category_id: Categoría
         product_model_id: Modelo
         active: Activo
+        title: Título
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'

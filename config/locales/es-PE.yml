@@ -22,6 +22,8 @@ es-PE:
   payment_type: Tipo de Pago
   terms_of_service: Términos y condiciones
   contact_type: Tipo de Contacto
+  # Page
+  page: Página
   # Banner
   link: Link
   # Contact
