@@ -10,6 +10,9 @@ es-PE:
   product_model_id: Modelo
   # Category
   category: Categoría
+  # ProductModel
+  productmodel: Modelo
+  active: Activo
   # ProductUser
   user_name: Nombre
   job_title: Puesto de trabajo

@@ -44,6 +44,7 @@ es-PE:
         contact_type: Tipo de Contacto
         category_id: Categoría
         product_model_id: Modelo
+        active: Activo
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'
