@@ -8,6 +8,8 @@ es-PE:
   image: Imagen
   category_id: Categoría
   product_model_id: Modelo
+  # Category
+  category: Categoría
   # ProductUser
   user_name: Nombre
   job_title: Puesto de trabajo
