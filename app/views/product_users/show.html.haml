@@ -43,10 +43,10 @@
   .col-md-7
     .preview_content
       %img{:src=>"/assets/product_users/preview.jpg", :id=>"back"}
-      %img{:src=>@product_user.image_svg, :id=>"preview"}
+      %img{:src=>@product_user.image_svg, :id=>"preview",
+          :style=>"zoom: 0.61; -moz-transform:scale(0.61); -moz-transform-origin: 0 0; -o-transform: scale(0.61); -o-transform-origin: 0 0; -webkit-transform: scale(0.61); -webkit-transform-origin: 0 0;"}
 
     -# = @product_user.image_svg
-
 
 %br
 
