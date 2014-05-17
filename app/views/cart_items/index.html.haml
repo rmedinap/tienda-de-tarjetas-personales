@@ -33,7 +33,7 @@
             = link_to cart_item_path(item,
               :product_id=>item.product_id,
               :product_user_id=>item.product_user_id),
-              :data => { :confirm => "¿Desea eliminar el producto de su carrito?" },
+              :data => { :confirm => "¿Desea eliminar el producto de sus pedidos?" },
               :method => :delete, :class=>"btn btn-danger btn-xs text" do
               %span.glyphicon.glyphicon-trash
       %tr
@@ -50,6 +50,6 @@
         %td{:colspan=>2}= link_to "Pagar", new_order_path, :class=>"btn btn-primary btn-block"
 - else
   %br
-  %p No tienes productos en tu carrito.
+  %p No tienes productos en tus pedidos.
   %br
   %p= link_to "Seguir comprando", root_path, :class=>"btn btn-default"

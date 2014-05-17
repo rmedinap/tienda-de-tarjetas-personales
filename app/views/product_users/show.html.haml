@@ -1,7 +1,7 @@
 %p#notice= notice
 
 .row
-  .col-md-5
+  -# .col-md-5
     %table.table.table-bordered
       %tr
         %th Product
@@ -31,22 +31,38 @@
         %th Website:
         %td= @product_user.website
 
+  .col-md-1
+  .col-md-4
     .row
-      .col-md-6
+      %p
+        El diseño escogido para
+        %b #{@product_user.user_name}
+        ,
+        %b #{@product_user.job_title}
+        de
+        %b #{@product_user.company_name}
+        quedaría como se muestra en la imagen de la derecha.
+      %p
+        Puede añadir el producto personalizado a sus pedidos haciendo click
+        en el botón verde "Añadir a mis pedidos" en la parte inferior.
+      %br
+    .row
+      .col-md-5
         = edit_tool [@product, @product_user]
         = list_tool ProductUser
-      .col-md-6
-        = button_to "Añadir al carrito", {:controller => "cart_items",
+      .col-md-7
+        = button_to "Añadir a mis pedidos", {:controller => "cart_items",
       :action => "create", :id => @product_user.id, :product_id => @product.id, :quantity => 1},
       :class => "btn btn-success btn-block"
 
   .col-md-7
     .preview_content
-      %img{:src=>"/assets/product_users/preview.jpg", :id=>"back"}
-      %img{:src=>@product_user.image_svg, :id=>"preview",
-          :style=>"zoom: 0.61; -moz-transform:scale(0.61); -moz-transform-origin: 0 0; -o-transform: scale(0.61); -o-transform-origin: 0 0; -webkit-transform: scale(0.61); -webkit-transform-origin: 0 0;"}
+      %img{:src=>@product_user.image_svg,
+          :style=>"zoom: 0.75; -moz-transform:scale(0.75); -moz-transform-origin: 0 0; -o-transform: scale(0.75); -o-transform-origin: 0 0; -webkit-transform: scale(0.75); -webkit-transform-origin: 0 0;"}
+      -# %img{:src=>"/assets/product_users/preview.jpg", :id=>"back"}
+      -# %img{:src=>@product_user.image_svg, :id=>"preview",
+          -# :style=>"zoom: 0.61; -moz-transform:scale(0.61); -moz-transform-origin: 0 0; -o-transform: scale(0.61); -o-transform-origin: 0 0; -webkit-transform: scale(0.61); -webkit-transform-origin: 0 0;"}
 
     -# = @product_user.image_svg
 
-%br
-
+    #testdiv
