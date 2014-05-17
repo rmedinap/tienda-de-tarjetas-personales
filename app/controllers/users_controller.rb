@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     # authorize! :update, @user, :message => 'No está autorizado para acceder a esa página.'
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      redirect_to users_path, :notice => "User updated."
+      redirect_to users_path, :notice => "Usuario actualizado."
     else
-      redirect_to users_path, :alert => "Unable to update user."
+      redirect_to users_path, :alert => "No se puede actualizar el usuario."
     end
   end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     unless user == current_user
       user.destroy
-      redirect_to users_path, :notice => "User deleted."
+      redirect_to users_path, :notice => "Usuario eliminado."
     else
       redirect_to users_path, :notice => "Can't delete yourself."
     end
