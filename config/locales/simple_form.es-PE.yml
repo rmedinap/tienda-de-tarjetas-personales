@@ -42,6 +42,8 @@ es-PE:
         description: "Breve descripción"
         document_number: "Número de documento"
         contact_type: Tipo de Contacto
+        category_id: Categoría
+        product_model_id: Modelo
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'

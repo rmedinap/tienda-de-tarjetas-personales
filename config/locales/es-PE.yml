@@ -1,5 +1,6 @@
 es-PE:
   # Product
+  product: Producto
   name: Nombre
   description: Descripción
   price: Precio

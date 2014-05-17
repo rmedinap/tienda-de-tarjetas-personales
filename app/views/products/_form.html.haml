@@ -14,4 +14,5 @@
         = f.input :product_model_id, :collection => @product_models
 
       .form-actions
-        = f.button :submit
+        - object = t f.object.class.name.downcase
+        = f.button :submit, "#{f.object.new_record? ? "Crear #{object}" : "Actualizar #{object}"}"
