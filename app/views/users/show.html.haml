@@ -5,16 +5,16 @@
     %p
       %b Email:
       #{@user.email if @user.email}
-    #mis-ordenes
+    #mis-pedidos
     = link_to 'Editar cuenta', edit_user_path, :class=>"btn btn-default"
 .panel.panel-default
   .panel-heading
-    %h3.panel-title Mis ordenes
+    %h3.panel-title Mis pedidos
   .panel.panel-body
     - if @user.orders.present?
       = render 'orders/index', :orders => @user.orders
     - else
-      No tiene ordenes.
+      No tiene pedidos.
 .panel.panel-default
   .panel-heading
     %h3.panel-title Contacto

@@ -323,7 +323,7 @@ DEPENDENCIES
   pry-rescue
   quiet_assets
   rails (= 4.0.0)
-  rails-erd
+  rails-erd (~> 1.1.0)
   rails_layout
   rb-fchange
   rb-fsevent

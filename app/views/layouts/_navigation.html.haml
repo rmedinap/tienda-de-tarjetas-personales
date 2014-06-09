@@ -7,11 +7,9 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to('Home', root_path, class: 'navbar-brand') if !current_user.present? || !current_user.has_role?(:admin)
+      = link_to('Home', root_path, class: 'navbar-brand')
     .collapse.navbar-collapse#navbar_top
-      %div{class: "#{current_user.present? && current_user.has_role?(:admin) ? "col-md-7" : "col-md-6"}"}
-        %ul.nav.navbar-nav
-          = render 'layouts/navigation_links'
-      .col-md-5
-        %ul.nav.navbar-nav.navbar-right
-          = render 'layouts/user_links'
+      %ul.nav.navbar-nav
+        = render 'layouts/navigation_links'
+      %ul.nav.navbar-nav.navbar-right
+        = render 'layouts/user_links'

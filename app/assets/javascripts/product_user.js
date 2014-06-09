@@ -39,7 +39,7 @@ $(function() {
     position: "fixed"
   });
 
-  // Reload page warning
+  // Styles in element
   if ($("#current_page").length > 0 ){
     $(".product-user-content div").each(function(){
       styles = css($(this));

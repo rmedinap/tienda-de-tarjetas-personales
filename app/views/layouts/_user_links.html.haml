@@ -1,8 +1,6 @@
 %li
   = link_to cart_items_path do
     = render 'shared/cart'
-%li
-  = link_to "|", "#", :class=>"btn disabled"
 - if user_signed_in?
   %li.dropdown
     %a.dropdown-toggle{"data-toggle"=>"dropdown", :href=>"#"}
@@ -15,9 +13,9 @@
           %span.glyphicon.glyphicon-edit
           Editar cuenta
       %li
-        = link_to "#{user_path current_user}#mis-ordenes" do
+        = link_to "#{user_path current_user}#mis-pedidos" do
           %span.glyphicon.glyphicon-list-alt
-          Mis ordenes
+          Mis pedidos
       %li
         = link_to "#{user_path current_user}#contacto" do
           %span.glyphicon.glyphicon-book
@@ -28,7 +26,7 @@
         %li= link_to 'Productos', products_path
         %li= link_to 'Categorías', categories_path
         %li= link_to 'Modelos', product_models_path
-        %li= link_to 'Órdenes', orders_path
+        %li= link_to 'Pedidos', orders_path
         %li= link_to 'Páginas', pages_path
         %li= link_to 'Banners', banners_path
         %li= link_to 'Contacto', contacts_path
