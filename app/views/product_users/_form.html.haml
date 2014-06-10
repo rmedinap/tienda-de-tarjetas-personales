@@ -1,5 +1,23 @@
 = simple_form_for([@product, @product_user], :html=>{:id=>"product_user_form"}) do |f|
   = render 'layouts/error_messages', :target => f.object
+  %hr
+
+  .row
+    .col-md-5
+      %ul
+        %li
+          Precio por ciento (Incluido IGV):
+          %b #{number_to_currency @product.price}
+        %li Incluye envío dentro de Lima Metropolitana.
+        %li Consultar costos de envíos a otros destinos.
+    .col-md-4
+      Tipo de papel:
+      %br
+      .form-inputs.drop-labels
+        .control-group
+          .controls
+            = f.input :paper_type
+  %hr
 
   .row
     .col-md-4

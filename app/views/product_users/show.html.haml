@@ -40,6 +40,10 @@
         de
         %b #{@product_user.company_name}
         quedaría como se muestra en la imagen de la derecha.
+      - if @product_user.paper_type.present?
+        %p
+          %b Tipo de papel:
+          = @product_user.paper_type
       %p
         Puede añadir el producto personalizado a sus pedidos haciendo click
         en el botón verde "Añadir a mis pedidos" en la parte inferior.

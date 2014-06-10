@@ -60,7 +60,7 @@ class ProductUsersController < ApplicationController
     def product_user_params
       params.require(:product_user).permit(:product_id, :company_name, :company_message,
                                            :user_name, :job_title, :address, :phone,
-                                           :email, :website, :image_svg)
+                                           :email, :website, :image_svg, :paper_type)
     end
 
     def set_product
