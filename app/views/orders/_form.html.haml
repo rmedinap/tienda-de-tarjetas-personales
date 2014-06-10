@@ -8,10 +8,18 @@
         %hr
         .form-inputs
           = f.input :user_id, :as=>:hidden, :input_html=>{:value=> current_user.id}
-          = f.input :name, :as=>:hidden, :input_html=>{:value=> current_user.name}
           = f.input :email, :as=>:hidden, :input_html=>{:value=> current_user.email}
-          = f.input :document_number,
-            :label => "Número de documento"
+          = f.input :proof_type, collection: Order::PROOF_TYPE,
+            include_blank: '- Escoger comprobante -', label: 'Tipo de comprobante',
+            :input_html=>{:class=>"input-large"}, :selected=>@order.proof_type
+          .control-group
+            #proof_type{:class=>"#{"hidden" unless @order.proof_type.present?}"}
+              %label#proof_type_label
+                %abbr{:title=>"obligatorio"} *
+                DNI
+              = f.input :document_number, :label => false
+          = f.input :name, label: "Nombres"
+          = f.input :last_name, label: "Apellidos"
           = f.input :address,
             :label => "Dirección"
           -# = f.input :special_id
@@ -34,6 +42,16 @@
               = content_tag :label, class: "radio" do
                 = f.radio_button :payment_type, Order::PAYMENT_TYPES[1][1]
                 .text-muted Disponible sólo para pedidos menores a S/.500
+        %h3 Envío
+        %hr
+        .form-inputs
+          .control-group.required
+            .controls
+              = f.input :destination_type, collection: Order::DESTINATION_TYPE,
+                include_blank: '- Envío a -', label: 'Enviar a',
+                :input_html=>{:class=>"input-large"}
+              = f.input :shipping_address
+              = f.input :contact_phone
       .col-md-4
         %h3 Resúmen de la orden
         %hr

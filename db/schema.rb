@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610043410) do
+ActiveRecord::Schema.define(version: 20140610060616) do
 
   create_table "banners", force: true do |t|
     t.string   "image"
@@ -78,6 +78,10 @@ ActiveRecord::Schema.define(version: 20140610043410) do
     t.string   "discount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "last_name"
+    t.string   "destination_type"
+    t.string   "shipping_address"
+    t.string   "contact_phone"
   end
 
   create_table "pages", force: true do |t|

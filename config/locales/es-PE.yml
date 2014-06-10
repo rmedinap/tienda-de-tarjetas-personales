@@ -23,6 +23,11 @@ es-PE:
   payment_type: Tipo de Pago
   terms_of_service: Términos y condiciones
   contact_type: Tipo de Contacto
+  last_name: Apellido
+  shipping_address: Dirección de envío
+  contact_phone: Teléfono de contacto
+  destination_type: Tipo de destino
+  proof_type: Tipo de comprobante
   # Page
   page: Página
   # Banner

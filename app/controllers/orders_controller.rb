@@ -63,6 +63,7 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(:user_id, :name, :email, :address, :document_number,
                                     :payment_type, :special_id, :subtotal, :discount,
-                                    :terms_of_service)
+                                    :terms_of_service, :proof_type, :last_name,
+                                    :destination_type, :shipping_address, :contact_phone)
     end
 end

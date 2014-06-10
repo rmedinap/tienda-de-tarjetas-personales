@@ -1,34 +1,4 @@
 .row
-  -# .col-md-5
-    %table.table.table-bordered
-      %tr
-        %th Product
-        %td= @product_user.product
-      %tr
-        %th Company name:
-        %td= @product_user.company_name
-      %tr
-        %th Company message:
-        %td= @product_user.company_message
-      %tr
-        %th User name:
-        %td= @product_user.user_name
-      %tr
-        %th Job title:
-        %td= @product_user.job_title
-      %tr
-        %th Address:
-        %td= @product_user.address
-      %tr
-        %th Phone:
-        %td= @product_user.phone
-      %tr
-        %th Email:
-        %td= @product_user.email
-      %tr
-        %th Website:
-        %td= @product_user.website
-
   .col-md-1
   .col-md-4
     .row
@@ -44,7 +14,9 @@
         %p
           %b Tipo de papel:
           = @product_user.paper_type
-      %p
+      .alert.alert-info
+        Asegurarse de revisar la información, posteriormente no hay lugar a reclamos.
+      .alert.alert-success
         Puede añadir el producto personalizado a sus pedidos haciendo click
         en el botón verde "Añadir a mis pedidos" en la parte inferior.
       %br
