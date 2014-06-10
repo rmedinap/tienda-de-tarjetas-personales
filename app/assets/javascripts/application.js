@@ -22,6 +22,7 @@
 //= require jquery-ui
 //= require ckeditor/override
 //= require ckeditor/init
+//= require jquery.validate.min
 //  require saveSvgAsPng
 //  require canvg/rgbcolor
 //  require canvg/StackBlur
