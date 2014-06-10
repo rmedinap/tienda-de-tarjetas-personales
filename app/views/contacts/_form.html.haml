@@ -9,6 +9,7 @@
         = f.input :phone
         = f.input :contact_type, :as=> :radio_buttons, :collection => Contact::CONTACT_TYPE
         = f.input :description
+        = f.input :own_design
         = f.input :user_id, :as=>:hidden, :input_html=>{:value=> current_user.id}
 
       .form-actions

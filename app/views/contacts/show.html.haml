@@ -19,6 +19,10 @@
 %p
   %b Usuario:
   = @contact.user
+%br
+- if @contact.own_design.present?
+  %b Diseño propio:
+  = image_tag @contact.own_design.detail
 
 = edit_tool @contact
 = list_tool Contact

@@ -5,5 +5,7 @@ class Contact < ActiveRecord::Base
 
   belongs_to :user
 
+  mount_uploader :own_design, ProductImageUploader
+
   CONTACT_TYPE = [["Sugerencia", 1], ["Reclamo", 2]]
 end

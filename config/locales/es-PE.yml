@@ -32,6 +32,7 @@ es-PE:
   contact: Contact
   email: Email
   phone: Teléfono
+  own_design: Diseño propio
   # User
   password: Clave
 

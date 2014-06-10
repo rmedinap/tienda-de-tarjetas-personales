@@ -47,6 +47,7 @@ es-PE:
         active: Activo
         title: Título
         image: Imagen
+        own_design: Diseño propio
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'
