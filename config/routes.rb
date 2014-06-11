@@ -12,6 +12,7 @@ CardStore::Application.routes.draw do
       get :thanks
       put :to_dispatch
       put :dispatched
+      post :send_invoice
     end
   end
 

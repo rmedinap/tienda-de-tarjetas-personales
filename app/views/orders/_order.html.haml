@@ -1,0 +1,25 @@
+.row
+  .col-md-6
+    %table.table.table-bordered
+      %tr
+        %th Usuario
+        %td
+          = @order.user.name
+          = "(Id: #{@order.user_id})"
+      %tr
+        %th Email
+        %td= @order.user.email
+      %tr
+        %th Fecha
+        %td= @order.created_at
+  .col-md-6
+    %table.table.table-bordered
+      %tr
+        %th Dirección
+        %td= @order.address
+      %tr
+        %th Número de documento
+        %td= @order.document_number
+      %tr
+        %th Medio de Pago
+        %td= Order::PAYMENT_TYPES.invert[@order.payment_type]

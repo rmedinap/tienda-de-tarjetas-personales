@@ -13,7 +13,7 @@
             include_blank: '- Escoger comprobante -', label: 'Tipo de comprobante',
             :input_html=>{:class=>"input-large"}, :selected=>@order.proof_type
           .control-group
-            #proof_type{:class=>"#{"hidden" unless @order.proof_type.present?}"}
+            #proof_type.hidden
               %label#proof_type_label
                 %abbr{:title=>"obligatorio"} *
                 DNI

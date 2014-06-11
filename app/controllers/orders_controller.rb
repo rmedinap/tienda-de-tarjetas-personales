@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   skip_load_resource :only => [:create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy, :to_dispatch]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :to_dispatch, :dispatched, :send_invoice]
   before_filter :authenticate_user!, :except => [:show]
 
   def index
@@ -68,6 +68,11 @@ class OrdersController < ApplicationController
     else
       redirect_to orders_path, :flash => {error: "#{@order.errors.full_messages.join(". \n")}"}
     end
+  end
+
+  def send_invoice
+    SendInvoiceMailer.send_invoice(@order).deliver
+    redirect_to @order
   end
 
   def destroy

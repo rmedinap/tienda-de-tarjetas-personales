@@ -4,9 +4,11 @@ $(function(){
     if (proof_type == "Factura"){
       $("#proof_type_label").html("<abbr title='obligatorio'>*</abbr> RUC");
       $("#proof_type").removeClass("hidden");
-    }else{
+    }else if (proof_type == "Boleta"){
       $("#proof_type_label").html("<abbr title='obligatorio'>*</abbr> DNI");
       $("#proof_type").removeClass("hidden");
+    }else{
+      $("#proof_type").addClass("hidden");
     }
   });
   $("#order_proof_type").trigger("change");
