@@ -18,6 +18,8 @@ class Order < ActiveRecord::Base
   DESTINATION_TYPE  = ["Domicilio", "Local"]
   STATES            = ["En despacho", "Despachada"]
 
+  scope :list_to_dispatch, -> {where.not(:sent_to_dispatch => nil).where(:state => STATES[0])}
+
   before_create :save_total_and_discount
 
   def calculate_subtotal

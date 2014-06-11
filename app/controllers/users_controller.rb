@@ -32,7 +32,7 @@ class UsersController < ApplicationController
       user.destroy
       redirect_to users_path, :notice => "Usuario eliminado."
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to users_path, :notice => "No puedes eliminarte tú mismo."
     end
   end
 

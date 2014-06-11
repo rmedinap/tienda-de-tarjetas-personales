@@ -5,6 +5,23 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+    elsif user.has_role? :despacho
+      can :show,      Product
+      cannot :index,  Product
+      can :show,      Category
+      cannot :index,  Category
+      can :show,      ProductModel
+      cannot :index,  ProductModel
+      can [:show, :create, :update], ProductUser
+      cannot :index,  ProductUser
+      can [:index, :show, :create, :thanks], Order, :user_id => user.id
+      can :dispatched, Order
+      can :show,      User
+      cannot :index,  User
+      can :show,      Page
+      cannot :index,  Page
+      can [:show, :create], Contact
+      cannot :index,  Contact
     else
       can :show,      Product
       cannot :index,  Product

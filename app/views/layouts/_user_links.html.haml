@@ -22,7 +22,7 @@
           Contacto
       - if user_signed_in? and current_user.has_role? :admin
         %li.divider
-        %li= link_to 'Usuario', users_path
+        %li= link_to 'Usuarios', users_path
         %li= link_to 'Productos', products_path
         %li= link_to 'Categorías', categories_path
         %li= link_to 'Modelos', product_models_path
@@ -30,6 +30,9 @@
         %li= link_to 'Páginas', pages_path
         %li= link_to 'Banners', banners_path
         %li= link_to 'Contacto', contacts_path
+      - if user_signed_in? and current_user.has_role? :despacho
+        %li.divider
+        %li= link_to 'Ver pedidos', orders_path
 
       %li.divider
       %li

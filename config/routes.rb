@@ -11,6 +11,7 @@ CardStore::Application.routes.draw do
     member do
       get :thanks
       put :to_dispatch
+      put :dispatched
     end
   end
 

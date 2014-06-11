@@ -20,11 +20,16 @@ puts 'user: ' << user.name
 puts 'email: ' << user.email
 puts 'pass: ' << user.password
 user.add_role :admin
+user = User.find_or_create_by_email :name => "Dispatch example", :email => "despacho@example.com", :password => "12345678", :password_confirmation => "12345678"
+puts 'user: ' << user.name
+puts 'email: ' << user.email
+puts 'pass: ' << user.password
+user.add_role :despacho
 user = User.find_or_create_by_email :name => "User example", :email => "user@example.com", :password => "12345678", :password_confirmation => "12345678"
 puts 'user: ' << user.name
 puts 'email: ' << user.email
 puts 'pass: ' << user.password
-user.add_role :user
+user.add_role :cliente
 
 puts " "
 puts "########################"

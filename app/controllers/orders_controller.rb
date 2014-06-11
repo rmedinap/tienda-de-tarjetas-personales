@@ -5,7 +5,11 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
 
   def index
-    @orders = Order.all
+    if current_user.has_role? :admin
+      @orders = Order.all
+    else
+      @orders = Order.list_to_dispatch
+    end
   end
 
   def show
@@ -52,6 +56,15 @@ class OrdersController < ApplicationController
     @order.state            = Order::STATES[0] # En despacho
     if @order.save
       redirect_to orders_path, :notice => "Orden enviada a despacho."
+    else
+      redirect_to orders_path, :flash => {error: "#{@order.errors.full_messages.join(". \n")}"}
+    end
+  end
+
+  def dispatched
+    @order.state = Order::STATES[1] # Despachada
+    if @order.save
+      redirect_to orders_path, :notice => "Orden despachada."
     else
       redirect_to orders_path, :flash => {error: "#{@order.errors.full_messages.join(". \n")}"}
     end
