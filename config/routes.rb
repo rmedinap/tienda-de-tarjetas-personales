@@ -10,6 +10,7 @@ CardStore::Application.routes.draw do
   resources :orders do #, only: [:index, :new, :show, :create] do
     member do
       get :thanks
+      put :to_dispatch
     end
   end
 

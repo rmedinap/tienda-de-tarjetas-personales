@@ -82,6 +82,8 @@ ActiveRecord::Schema.define(version: 20140610060616) do
     t.string   "destination_type"
     t.string   "shipping_address"
     t.string   "contact_phone"
+    t.datetime "sent_to_dispatch"
+    t.string   "state"
   end
 
   create_table "pages", force: true do |t|

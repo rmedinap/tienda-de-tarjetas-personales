@@ -13,9 +13,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :line_items, dependent: :destroy
 
-  PAYMENT_TYPES     = [["Depósito", 1], ["Pago Contra entrega", 2]]
+  PAYMENT_TYPES     = {"Depósito" => 1, "Pago Contra entrega" => 2}
   PROOF_TYPE        = ['Boleta', 'Factura']
   DESTINATION_TYPE  = ["Domicilio", "Local"]
+  STATES            = ["En despacho", "Despachada"]
 
   before_create :save_total_and_discount
 

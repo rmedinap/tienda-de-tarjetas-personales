@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   load_and_authorize_resource
   skip_load_resource :only => [:create]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :to_dispatch]
   before_filter :authenticate_user!, :except => [:show]
 
   def index
@@ -44,6 +44,16 @@ class OrdersController < ApplicationController
         format.html { render action: 'edit' }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def to_dispatch
+    @order.sent_to_dispatch = Time.now
+    @order.state            = Order::STATES[0] # En despacho
+    if @order.save
+      redirect_to orders_path, :notice => "Orden enviada a despacho."
+    else
+      redirect_to orders_path, :flash => {error: "#{@order.errors.full_messages.join(". \n")}"}
     end
   end
 

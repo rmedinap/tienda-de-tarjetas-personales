@@ -24,7 +24,7 @@
         %td= @order.document_number
       %tr
         %th Medio de Pago
-        %td= Order::PAYMENT_TYPES.detect{|k| k[1] == @order.payment_type}[0]
+        %td= Order::PAYMENT_TYPES.invert[@order.payment_type]
 %br
 .row
   .col-md-12

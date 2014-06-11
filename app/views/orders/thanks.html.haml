@@ -5,7 +5,7 @@
       = "¡Gracias por tu compra #{@order.user.name}!"
     %hr
 
-    - if @order.payment_type == Order::PAYMENT_TYPES.detect{|k| k[0] == "Depósito"}[1]
+    - if @order.payment_type == Order::PAYMENT_TYPES["Depósito"]
       %h4.text-center
         Depósito:
         %hr
@@ -15,7 +15,7 @@
         %br
         CC Soles: 193-0000000-000 - CCI 00000000000000000000
         -# Te lo mandamos a tu correo.
-    - elsif @order.payment_type == Order::PAYMENT_TYPES.detect{|k| k[0] == "Pago Contra entrega"}[1]
+    - elsif @order.payment_type == Order::PAYMENT_TYPES["Pago Contra entrega"]
       %h4.text-center
         Pago Contra entrega:
         %hr

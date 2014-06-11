@@ -1,19 +1,28 @@
 %table.table.table-striped
   %tr
-    %th.text-center Id-Usuario
+    %th Fecha y hora
     %th Nombre
-    %th Dirección
     %th Subtotal
+    %th Forma de pago
+    %th Estado
     %th
 
   - orders.each do |order|
     %tr
-      %td.text-center= order.user_id
+      %td= order.created_at.strftime("%d-%m-%Y / %H:%M")
       %td
         = "#{order.name} - "
         = link_to order.email, user_path(order.user_id)
-      %td= order.address
-      %td= order.subtotal
+      %td= number_to_currency order.subtotal
+      %td= Order::PAYMENT_TYPES.invert[order.payment_type]
       %td
-        = show_tool order
-        = delete_tool order
+        %span.label.label-primary= order.state
+      %td
+        -# - if order.state.present? && order.state != "Despachada"
+        = link_to to_dispatch_order_path(order.id),
+          class: "btn btn-primary btn-sm #{"disabled" if order.state.present? && order.state != "Despachada"}",
+          method: "put" do
+          %span.glyphicon.glyphicon-share-alt
+          a despacho
+        = show_tool order, {}, {:text=>false}
+        = delete_tool order, {:text=>false}
