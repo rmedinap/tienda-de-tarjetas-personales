@@ -48,6 +48,8 @@ es-PE:
         title: Título
         image: Imagen
         own_design: Diseño propio
+        shipping_address: Dirección de envío
+        contact_phone: Teléfono de contacto
     hints:
       username: 'User name to sign in.'
       password: 'No special characters, please.'

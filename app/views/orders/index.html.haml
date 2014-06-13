@@ -3,7 +3,11 @@
     %h1 Pedidos
   .col-md-4
     %br
-    .pull-right= new_tool Order
+    -# .pull-right= new_tool Order
+    .pull-right
+      = link_to new_order_path, class: "btn btn-success" do
+        %span.glyphicon.glyphicon-plus-sign
+        Nuevo Pedido
 %hr
 
 %ul.nav.nav-tabs.nav-justified
